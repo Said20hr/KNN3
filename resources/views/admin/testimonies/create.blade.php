@@ -16,8 +16,8 @@
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
 
                                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">الرئيسية</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('packs.index')}}">الباقات الاستثمارية</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">الباقة  </li>
+                                    <li class="breadcrumb-item"><a href="{{route('testimony.index')}}">الباقات الاستثمارية</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">اضافة رأي مستثمر  </li>
                                 </ol>
                             </nav>
                         </div>
@@ -49,44 +49,47 @@
                     <div class="card bg-secondary shadow">
                         <div class="card-header bg-white border-0">
                             <div class="row align-items-center">
-                                <h3 class="mb-0">اضافة الباقة</h3>
+                                <h3 class="mb-0">اضافة الرأي</h3>
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="{{route('packs.store')}}"  enctype="multipart/form-data">
+                            <form method="post" action="{{route('testimony.store')}}"  enctype="multipart/form-data">
                                 @csrf
                                 <div class="pl-lg-4">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-name"> اسم الباقة</label>
-                                                <input type="text" name="name" id="input-name" class="form-control form-control-alternative border" value="{{old('name')}}" placeholder="اسم الباقة"  required="" autofocus="">
+                                                <label class="form-control-label" for="input-name"> المستثمر</label>
+                                                <select  class="form-control form-control-alternative px-2" name="user">
+                                                    @foreach($users as $user)
+                                                        <option value="{{$user->id}}">{{$user->name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-email"> ادني مبلغ</label>
-                                                <input type="text" name="low" id="input-email" class="form-control form-control-alternative" value="{{old('low')}}" placeholder="ادني مبلغ"  required="">
+                                                <label class="form-control-label" for="input-email"> الامتياز </label>
+                                              <div class="row mt-3">
+                                                <div class="custom-control custom-radio mb-3 mx-4" dir="ltr">
+                                                    <input type="radio" id="customRadio1" name="state" class="custom-control-input" value="on">
+                                                    <label class="custom-control-label" for="customRadio1">متيمز</label>
+                                                </div>
+                                                <div class="custom-control custom-radio mx-4">
+                                                    <input type="radio" id="customRadio2" name="state" class="custom-control-input" value="off">
+                                                    <label class="custom-control-label" for="customRadio2"> غير متيمز</label>
+                                                </div>
+                                              </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+
+                                        <div class="col-md-12">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-email">اقصى مبلغ </label>
-                                                <input type="text" name="high" id="input-email" class="form-control form-control-alternative" value="{{old('high')}}" placeholder="اقصى مبلغ" required="">
+                                                <label class="form-control-label" for="input-email">الرأي </label>
+                                                <textarea name="message" class="form-control form-control-alternative px-2" id="" cols="30" rows="10"></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group focused">
-                                                <label class="form-control-label" for="input-email">نسبة الربح</label>
-                                                <input type="text" name="percent" id="input-email" class="form-control form-control-alternative" value="{{old('percent')}}" placeholder="نسبة الربح" required="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group focused">
-                                        <label class="form-control-label" for="input-email">صورة الباقة</label>
-                                        <input type="file" name="image" id="input-email" class="form-control form-control-alternative"  required="">
-                                    </div>
-                                        </div>
+
 
                                     </div>
                                     <div class="text-start">

@@ -21,6 +21,7 @@ Route::group([
         Route::resource('/users', App\Http\Controllers\admin\usersController::class);
         Route::resource('/packs', App\Http\Controllers\admin\packsController::class);
         Route::resource('/investissements', App\Http\Controllers\admin\investController::class);
+        Route::resource('/testimony', App\Http\Controllers\admin\TestimonyController::class);
         Route::resource('/messages', App\Http\Controllers\admin\messageController::class)->except(['create','store']);
         Route::get('/investissements/create/{id}', [App\Http\Controllers\admin\investController::class,'investCreate'])->name('user.invest');
     }
@@ -29,9 +30,7 @@ Route::group([
 
 
 
-Route::get('/', function () {
-    return view('pages.home');
-})->name('home');
+Route::get('/', [App\Http\Controllers\HomapageController::class,'index'])->name('home');
 
 Route::get('/contact', function () {
     return view('pages.contact');
@@ -53,6 +52,7 @@ Route::group([
         Route::get('messages', App\Http\Livewire\Messages::class)->name('messages');
         Route::get('messages/{message}', App\Http\Livewire\MessagePage::class)->name('message.show');
         Route::get('message/send', App\Http\Livewire\MessageCreate::class)->name('message.send');
+        Route::delete('message/{message}', App\Http\Livewire\MessageCreate::class)->name('message.delete');
 }
 );
 

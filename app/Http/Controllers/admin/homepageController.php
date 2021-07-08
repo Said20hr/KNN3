@@ -20,7 +20,6 @@ class homepageController extends Controller
         $user_count = User::all()->count();
         $users_inv = User::get();
 
-
         $invest_count =Investissement::all()->sum('price');
         $july =Investissement::whereMonth('created_at', '=','7')->sum('price')/1000;
         $profit_count =Investissement::all()->sum('profit');

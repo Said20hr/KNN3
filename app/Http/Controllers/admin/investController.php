@@ -62,7 +62,7 @@ class investController extends Controller
             'price' => $request->price,
             'profit' => $request->profit,
         ]);
-        $user = \App\Models\User::find($request->user);
+        $user = \App\Models\User::findOrfail($request->user);
         $inv->user()->associate($user);
 
         return redirect()->route('investissements.index')->with('success_message','تمت اضافة الاستثمار بنجاح');
@@ -110,7 +110,7 @@ class investController extends Controller
      */
     public function destroy($id)
     {
-        $inve = Investissement::find($id);
+        $inve = Investissement::findOrFail($id);
         if($inve){
             $inve->delete();
         }
@@ -122,7 +122,7 @@ class investController extends Controller
      */
     public function investCreate($id)
     {
-        $user = \App\Models\User::find($id);
+        $user = \App\Models\User::findOrfail($id);
         $packs = Pack::all();
        return view('admin.investissments.create',compact('user','packs'));
     }

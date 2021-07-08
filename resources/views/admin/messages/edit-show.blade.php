@@ -16,7 +16,7 @@
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
 
                                     <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"> الباقات الاستثمارية   </li>
+                                    <li class="breadcrumb-item active" aria-current="page"> الرسائل الاستفسارية   </li>
                                 </ol>
                             </nav>
                         </div>

@@ -15,8 +15,9 @@
                             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
 
-                                    <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"> الباقات الاستثمارية   </li>
+                                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">الرئيسية</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('packs.index')}}">الباقات الاستثمارية</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">الباقة  </li>
                                 </ol>
                             </nav>
                         </div>

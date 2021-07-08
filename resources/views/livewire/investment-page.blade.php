@@ -14,14 +14,14 @@
 
     </x-slot>
     <div class="container mx-auto">
-        <div class="max-w-7xl py-10 lg:px-8  ">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-8">
 
             <div class="container mx-auto px-4 sm:px-8">
                 <div class="py-8">
-                    <div class="flex justify-between mb-5">
-                        <div class="flex">
-                            <h3 class="text-2xl font-weight-bolder text-gray-800 ml-3"> {{$invest->pack->name}}</h3>
-                            <h3 class="text-2xl font-weight-bolder text-gray-800 ml-3">   {{$invest->user->name." ".$invest->user->lastname}}</h3>
+                    <div class="sm:flex justify-between mb-5">
+                        <div class="sm:flex mb-5">
+                            <h3 class="text-2xl font-weight-bolder text-gray-800 ml-3 mb-3"> {{$invest->pack->name}}</h3>
+                            <h3 class="text-2xl font-weight-bolder text-gray-800 ml-3 mb-3">   {{$invest->user->name." ".$invest->user->lastname}}</h3>
                         </div>
                         <div>
                             <x-jet-button wire:loading.attr="disabled" wire:target="photo">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
 
-                    <div class=" bg-white-100 border-b border-gray-300 mt-5">
+                    <div class="bg-white-100 border-b border-gray-300 pt-8">
                         <div class="container grid">
                             <h2 class="mb-8 text-xl font-weight-bolder text-gray-600">
                                 البيانات الاستثمارية

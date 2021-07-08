@@ -28,7 +28,7 @@
       </div>
     </div>
     <!-- Page content -->
-    <div class="container-fluid mt--8" dir="rtl">
+    <div class="container-fluid mt--8 mb-5" dir="rtl">
 
 
           <div class="card text-right">
@@ -50,13 +50,12 @@
               <h3 class="mb-0">جدول المستثمرين</h3>
             </div>
             <!-- Light table -->
-            <div class="">
+            <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="name">الاسم</th>
                     <th scope="col" class="sort" data-sort="budget">اجمالي الاستثمار</th>
-                      <th scope="col">البريد </th>
                     <th scope="col" class="sort" data-sort="completion">البلد</th>
                       <th scope="col" class="sort" data-sort="status">حالة الملف</th>
                     <th scope="col"></th>
@@ -78,11 +77,6 @@
                       <td class="budget">
                       {{$user->invest->sum('price')}} دوﻻر
                     </td>
-                      <td>
-                          <span class="badge badge-dot ml-4">
-                        {{$user->email}}
-                      </span>
-                      </td>
                       <td>
                         <img  src="{{asset('assets/img/icons/flag.svg')}}" alt="{{ Auth::user()->name }}" width="20"/>
                         {{$user->country}}
@@ -119,32 +113,7 @@
                 </tbody>
               </table>
             </div>
-            <!-- Card footer -->
-            <div class="card-footer py-4">
-              <nav aria-label="...">
-                <ul class="pagination justify-content-center mb-0">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">
-                      <i class="fas fa-angle-left"></i>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item active">
-                    <a class="page-link" href="#">1</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">
-                      <i class="fas fa-angle-right"></i>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+
           </div>
 
       </div>

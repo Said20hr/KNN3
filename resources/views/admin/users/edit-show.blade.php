@@ -110,6 +110,8 @@
                                                     <input type="text" name="job" id="input-email" class="form-control form-control-alternative" value="{{$user->job}}" required="">
                                                 </div>
                                             </div>
+
+
                                             <div class="col-md-4">
                                                 <div class="form-group focused">
                                                     <label class="form-control-label" for="input-email">البلد</label>
@@ -242,8 +244,24 @@
                                                 </a>
                                             </div>
                                         </div>
-
                                     </div>
+                                    <div class="bor3 bg-secondary card card-stats  px-4 py-3 rounded">
+                                        @if($user->two_factor_recovery_codes)
+                                            <div class="h2 text-primary font-base">اكواد الاسترداد </div>
+                                            <div class="row">
+                                                @foreach (json_decode(decrypt($user->two_factor_recovery_codes), true) as $code)
+                                                    <div class="col-md-3 text-center">
+                                                        <div class="alert alert-dark" role="alert">
+                                                            {{$code}}
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                    </div>
+                                    @endif
+                                    </div>
+
+
                                     <div class="text-start">
                                         <a href="{{route('users.index')}}" type="submit" class="btn btn-primary mt-4">العودة</a>
                                         <a href="{{route('users.edit',$user->id)}}"type="submit" class="btn btn-success mt-4">تعديل</a>

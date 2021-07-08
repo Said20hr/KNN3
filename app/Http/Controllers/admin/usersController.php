@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Investissement;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
@@ -20,7 +22,7 @@ class usersController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::all();
         return view('admin.users.index',compact('users'));
     }
 
@@ -77,8 +79,16 @@ class usersController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
         ]);
+        if ($request->image) {
+            $img=  $request->image;
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            dd($img);
 
-        $user->updateProfilePhoto($request->image);
+            $user->updateProfilePhoto($img);
+        }
+
 
         return redirect()->route('users.index')->with('success_message','تمت اضافة المستثمر بنجاح');
 
@@ -92,7 +102,7 @@ class usersController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $edit = false;
         return view('admin.users.edit-show',compact('user','edit'));
     }
@@ -105,7 +115,7 @@ class usersController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $edit = true;
         return view('admin.users.edit-show',compact('user','edit'));
     }
@@ -119,7 +129,7 @@ class usersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
@@ -153,6 +163,7 @@ class usersController extends Controller
         $user->job = $request->job;
         $user->address =$request->address;
         $user->country =$request->country;
+
         if ($request->image) {
             $user->updateProfilePhoto($request->image);
         }
@@ -169,7 +180,14 @@ class usersController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
+        //ameliorate
+        $investissement = Investissement::where('user_id',$id)->get();
+
+        foreach ($investissement as $invest)
+        {
+            $invest->delete();
+        }
         if($user){
             $user->delete();
         }

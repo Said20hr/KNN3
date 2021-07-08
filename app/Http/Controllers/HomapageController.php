@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Investissement;
-use App\Models\message;
+use App\Models\Testimony;
 use Illuminate\Http\Request;
 
-class messageController extends Controller
+class HomapageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,8 @@ class messageController extends Controller
      */
     public function index()
     {
-        $messages=message::all();
-        return view('admin.messages.index',compact('messages'));
+        $testimony = Testimony::take(9)->get();
+        return view('pages.home',compact('testimony'));
     }
 
     /**
@@ -49,8 +47,7 @@ class messageController extends Controller
      */
     public function show($id)
     {
-        $message = message::findOrFail($id);
-        return view('admin.messages.edit-show',compact('message'));
+        //
     }
 
     /**
@@ -61,8 +58,7 @@ class messageController extends Controller
      */
     public function edit($id)
     {
-        $message = message::findOrFail($id);
-        return view('admin.messages.edit-show',compact('message'));
+        //
     }
 
     /**
@@ -74,14 +70,7 @@ class messageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'answer' => ['required', 'string'],
-        ]);
-        $message = message::findOrfail($id);
-
-        $message->reply= $request->answer;
-        $message->save();
-        return redirect()->back()->with('success_message','تمت الرد الباقة بنجاح');
+        //
     }
 
     /**
@@ -92,10 +81,6 @@ class messageController extends Controller
      */
     public function destroy($id)
     {
-        $message = message::findOrFail($id);
-        if($message){
-            $message->delete();
-        }
-        return redirect()->route('messages.index')->with('error_message','تم حذف الرسالة بنجاح');
+        //
     }
 }

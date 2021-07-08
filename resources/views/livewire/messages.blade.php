@@ -11,20 +11,20 @@
 
     </x-slot>
 
-    <div class="container mx-auto">
-        <div class="max-w-7xl py-10 lg:px-8  ">
-            <div class="p-t-28 p-lr-20">
+    <div class="py-10 px-3">
+        <div class="max-w-7xl mx-auto sm:px-8 lg:px-8">
+            <div class="py-4">
                 @if(session()->has('success_message'))
-                    <div class="bg-green-500 text-gray-600 py-2 px-3 rounded fs-20">{{session()->get('success_message')}}</div>
+                    <div class="bg-green-500 text-white py-2 px-3 rounded fs-20">{{session()->get('success_message')}}</div>
                 @endif
                 @if(session()->has('error_message'))
                     <div class="bg-red-600 text-gray-200 py-2 px-3 rounded fs-20">{{session()->get('error_message')}}</div>
                 @endif
             </div>
-            <div class="container mx-auto px-4 sm:px-8">
-                <div class="py-8">
-                    <div class="flex justify-between mb-5">
-                        <div>
+            <div class="container mx-auto px-8 sm:px-8">
+                <div class="">
+                    <div class="sm:flex justify-between mb-5">
+                        <div class="mb-5">
                             <h3 class="text-xl font-weight-bolder text-black"> قائمة الرسائل </h3>
                             <p class="mt-1 text-md text-gray-500">
                                 تصفح قائمة الرسائل الخاصة بك .
@@ -102,12 +102,15 @@
                                         <div class="flex">
                                             <a href="{{route('message.show',$message->id)}}" class="mx-2 text-center text-sm inline-flex items-center px-2 py-2 bg-green-500 border border-transparent rounded-md font-semibold text-white hover:bg-green-600 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="#">شاهد</a>
                                           @if($message->reply)
-                                            <form action=""  method="POST" class="">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button class="mx-2 text-center text-sm inline-flex items-center px-2 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-white hover:bg-red-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transitio" type="submit">حذف</button>
-                                            </form>
+                                                <button wire:click="destroy({{$message->id}})"
+                                                        class="mx-2 text-center text-sm inline-flex items-center px-2 py-2 bg-red-600 rounded-md font-semibold
+                                                         text-white hover:bg-red-700 active:bg-gray-900 focus:outline-none focus:border-gray-900
+                                                         disabled:opacity-25 transitio">حذف
+                                                </button>
+
                                             @endif
+                                            
+
                                         </div>
                                     </td>
 

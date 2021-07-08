@@ -19,6 +19,15 @@ class Messages extends Component
         }
 
     }
+    public function destroy($message)
+    {
+        $message = message::find($message);
+        if($message){
+            $message->delete();
+        }
+        session()->flash('success_message','تم حذف الرسالة بنجاح');
+        return redirect()->to('/user/messages');
+    }
 
     public function render()
     {

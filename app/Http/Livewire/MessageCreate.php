@@ -21,6 +21,7 @@ class MessageCreate extends Component
     }
     public function submit() {
 
+
         $validatedData = $this->validate();
 
 

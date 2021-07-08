@@ -69,7 +69,7 @@ class packsController extends Controller
     public function show($id)
     {
         $edit =false;
-        $pack = Pack::find($id);
+        $pack = Pack::findOrFail($id);
         return view('admin.packs.edit-show',compact('pack','edit'));
     }
 
@@ -82,7 +82,7 @@ class packsController extends Controller
     public function edit($id)
     {
         $edit =true;
-        $pack = Pack::find($id);
+        $pack = Pack::findOrFail($id);
         return view('admin.packs.edit-show',compact('pack','edit'));
     }
 
@@ -102,7 +102,7 @@ class packsController extends Controller
             'percent' => ['required', 'numeric'],
             'image' => ['required','image','mimes:jpeg,png,jpg,gif,svg|max:512'],
         ]);
-        $pack = Pack::find($id);
+        $pack = Pack::findOrFail($id);
 
         $pack->name= $request->name;
         $pack->low_price= $request->low;
@@ -121,7 +121,7 @@ class packsController extends Controller
      */
     public function destroy($id)
     {
-        $pack = Pack::find($id);
+        $pack = Pack::findOrFail($id);
         if($pack){
             $pack->delete();
         }

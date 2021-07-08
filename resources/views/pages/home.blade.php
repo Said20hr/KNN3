@@ -3,7 +3,7 @@
 @section('content')
     <main class="main" id="top">
 
-        <section class="py-lg-0 py-md-0 py-sm-6" id="home">
+        <section class="py-lg-4 py-sm-5 py-md-5 py-xl-4" id="home">
 
             <!--/.bg-holder-->
 
@@ -13,16 +13,16 @@
             <!--/.bg-holder-->
 
             <div class="container text-right ">
-                <div class="row align-items-center min-vh-75 min-vh-md-100 justify-content-center text-center">
-                    <div class="col-md-7 col-lg-9 py-5 text-sm-start text-center justify-content-center">
-                        <h1 class="mt-3 mb-sm-4 display-2 fw-semi-bold lh-sm fs-3 fs-lg-5 fs-xxl--2">  من هي شركة كنَّع؟  وما الهدف من وجودها؟  </h1>
-                        <p class="mb-4 fs-1">
+                <div class="row align-items-center min-vh-75 min-vh-md-100 justify-content-center text-center ">
+                    <div class="col-md-7 col-lg-9 text-sm-start text-center justify-content-center">
+                        <h1 class="mt-5 mb-sm-4 display-2 fw-bold fs-lg-5 fs-xl-5 fs-md-4 fs-sm-3 ">  من هي شركة كنَّع؟  وما الهدف من وجودها؟  </h1>
+                        <p class="mb-4 fs-lg-2 fs-xl-2 fs-md-2 fs-sm-2">
                             هي شركة تكنولوجية تقدم ثلاث برامج الكترونية بصنع فلسطيني عربي الهدف منها أن نثبت للعالم أن الشعب الفلسطيني قادر على
                             التغيير وقادر على الإبداع وإنتاج أفكار جديدة التي من شأنها تغيير أشخاص أو شعوب،
                             وللابتعاد عن التبعية قدر المستطاع والنهوض من القاع الى القمة.
                         </p>
                         <div class="pt-3 d-flex justify-content-center">
-                            <div class="col-md-6">
+                            <div class="col-md-6 col-sm-9">
                             <form>
                                 <div class="input-group d-flex flex-star-center">
                                     <input class="form-control rounded-pill shadow-lg border-0 text-right p-r-26"
@@ -193,9 +193,9 @@
             <div class="container " dir="rtl">
                 <div class="d-flex flex-center justify-content-between row">
                     <div class="col-lg-5 text-center">
-                        <h6 class="fs-3 fs-lg-4 lh-sm fw-bolder">قالو عنا !</h6>
+                        <h6 class="fs-3 fs-lg-4 lh-sm fw-bolder">اراء المستثمرين !</h6>
                     </div>
-                    <div class="col-lg-3 position-relative ">
+                    <div class="col-lg-2 position-relative ">
                         <a class="carousel-control-prev carousel-icon z-index-2" href="#carouselExampleDark" role="button" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
@@ -207,352 +207,152 @@
                     </div>
                 </div>
                 <div class="row flex-center">
-                    <div class="col-xl-10 px-0">
+                    <div class="col-xl-12 px-0">
                         <div class="carousel slide pt-6" id="carouselExampleDark" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active" data-bs-interval="10000">
                                     <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
-                                        <div class="col-md-4 mb-8 mb-md-0">
-                                            <div class="card card-span h-100 shadow-lg">
-                                                <div class="card-span-img"><img src="assets/img/gallery/user-1.png" alt="" /></div>
-                                                <div class="card-body d-flex flex-column flex-center py-6">
+                                        @foreach($testimony as $key => $testi)
+                                            @if($key < 3 &&  $testi->user)
+                                                <div class="col-md-4 mb-4 mb-md-0">
+                                                    <div class="card card-span h-100 shadow-lg">
+                                                        <div class="card-span-img  text-center">
+                                                            <img src="{{$testi->user->profile_photo_url}}" alt="" width="100" height="100" class="rounded-circle">
+                                                            <div class="text-center mt-3 fw-bold">{{$testi->user->name." ".$testi->user->lastname}}</div>
+                                                        </div>
+                                                        <div class="card-body mx-auto py-6">
                                                     <div class="my-4">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
+                                                        <div class="d-flex justify-content-center">
+                                                            <div class="mx-1">
+                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
                                                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
                                                                 </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
+                                                            </div>
+                                                            <div class="mx-1">
+                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
                                                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
                                                                 </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
+                                                            </div>
+                                                            <div class="mx-1">
+                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
                                                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
                                                                 </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
+                                                            </div>
+                                                            <div class="mx-1">
+                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
                                                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
                                                                 </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
+                                                            </div>
+                                                            <div class="mx-1">
+                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
+                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
                                                                 </svg>
-                                                            </li>
-                                                        </ul>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <p class="card-text text-center text-1000 px-4">منصة للاستخدام ، فريق عمل رائع ولا شيء سوى نتائج رائعة!</p>
+                                                    <p class="card-text text-center text-1000 px-4">{{$testi->message}}</p>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-8 mb-md-0">
-                                            <div class="card card-span h-100 shadow-lg">
-                                                <div class="card-span-img"><img src="assets/img/gallery/user-2.png" alt="" /></div>
-                                                <div class="card-body d-flex flex-column flex-center py-6">
-                                                    <div class="my-4">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                                                </svg>
-                                                            </li>
-                                                        </ul>
                                                     </div>
-                                                    <p class="card-text text-center text-1000 px-4">منصة للاستخدام ، فريق عمل رائع ولا شيء سوى نتائج رائعة!</p>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-8 mb-md-0">
-                                            <div class="card card-span h-100 shadow-lg">
-                                                <div class="card-span-img"><img src="assets/img/gallery/user-3.png" alt="" /></div>
-                                                <div class="card-body d-flex flex-column flex-center py-6">
-                                                    <div class="my-4">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                                                </svg>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <p class="card-text text-center text-1000 px-4">منصة للاستخدام ، فريق عمل رائع ولا شيء سوى نتائج رائعة!</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="carousel-item" data-bs-interval="2000">
                                     <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
-                                        <div class="col-md-4 mb-8 mb-md-0">
-                                            <div class="card card-span h-100 shadow-lg">
-                                                <div class="card-span-img"><img src="assets/img/gallery/user-1.png" alt="" /></div>
-                                                <div class="card-body d-flex flex-column flex-center py-6">
-                                                    <div class="my-4">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                                                </svg>
-                                                            </li>
-                                                        </ul>
+                                        @foreach($testimony as $key => $testi)
+                                            @if($key > 2 && $key < 6 )
+                                                <div class="col-md-4 mb-4 mb-md-0">
+                                                    <div class="card card-span h-100 shadow-lg">
+                                                        <div class="card-span-img  text-center">
+                                                            <img src="{{$testi->user->profile_photo_url}}" alt="" width="100" height="100" class="rounded-circle">
+                                                            <div class="text-center mt-3 fw-bold">{{$testi->user->name." ".$testi->user->lastname}}</div>
+                                                        </div>
+                                                        <div class="card-body mx-auto py-6">
+                                                            <div class="my-4">
+                                                                <div class="d-flex justify-content-center">
+                                                                    <div class="mx-1">
+                                                                        <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
+                                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="mx-1">
+                                                                        <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
+                                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="mx-1">
+                                                                        <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
+                                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="mx-1">
+                                                                        <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
+                                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="mx-1">
+                                                                        <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
+                                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <p class="card-text text-center text-1000 px-4">{{$testi->message}}</p>
+                                                        </div>
                                                     </div>
-                                                    <p class="card-text text-center text-1000 px-4">منصة للاستخدام ، فريق عمل رائع ولا شيء سوى نتائج رائعة!</p>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-8 mb-md-0">
-                                            <div class="card card-span h-100 shadow-lg">
-                                                <div class="card-span-img"><img src="assets/img/gallery/user-2.png" alt="" /></div>
-                                                <div class="card-body d-flex flex-column flex-center py-6">
-                                                    <div class="my-4">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                                                </svg>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <p class="card-text text-center text-1000 px-4">منصة للاستخدام ، فريق عمل رائع ولا شيء سوى نتائج رائعة!</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-8 mb-md-0">
-                                            <div class="card card-span h-100 shadow-lg">
-                                                <div class="card-span-img"><img src="assets/img/gallery/user-3.png" alt="" /></div>
-                                                <div class="card-body d-flex flex-column flex-center py-6">
-                                                    <div class="my-4">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                                                </svg>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <p class="card-text text-center text-1000 px-4">منصة للاستخدام ، فريق عمل رائع ولا شيء سوى نتائج رائعة!</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            @endif
+                                        @endforeach
+
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
-                                        <div class="col-md-4 mb-8 mb-md-0">
-                                            <div class="card card-span h-100 shadow-lg">
-                                                <div class="card-span-img"><img src="assets/img/gallery/user-1.png" alt="" /></div>
-                                                <div class="card-body d-flex flex-column flex-center py-6">
-                                                    <div class="my-4">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                                                </svg>
-                                                            </li>
-                                                        </ul>
+                                        @foreach($testimony as $key => $testi)
+                                            @if($key > 5 && $key < 9 )
+                                                <div class="col-md-4 mb-4 mb-md-0">
+                                                    <div class="card card-span h-100 shadow-lg">
+                                                        <div class="card-span-img  text-center">
+                                                            <img src="{{$testi->user->profile_photo_url}}" alt="" width="100" height="100" class="rounded-circle">
+                                                            <div class="text-center mt-3 fw-bold">{{$testi->user->name." ".$testi->user->lastname}}</div>
+                                                        </div>
+                                                        <div class="card-body mx-auto py-6">
+                                                            <div class="my-4">
+                                                                <div class="d-flex justify-content-center">
+                                                                    <div class="mx-1">
+                                                                        <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
+                                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="mx-1">
+                                                                        <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
+                                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="mx-1">
+                                                                        <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
+                                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="mx-1">
+                                                                        <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
+                                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="mx-1">
+                                                                        <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FF974D" viewBox="0 0 16 16">
+                                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <p class="card-text text-center text-1000 px-4">{{$testi->message}}</p>
+                                                        </div>
                                                     </div>
-                                                    <p class="card-text text-center text-1000 px-4">منصة للاستخدام ، فريق عمل رائع ولا شيء سوى نتائج رائعة!</p>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-8 mb-md-0">
-                                            <div class="card card-span h-100 shadow-lg">
-                                                <div class="card-span-img"><img src="assets/img/gallery/user-2.png" alt="" /></div>
-                                                <div class="card-body d-flex flex-column flex-center py-6">
-                                                    <div class="my-4">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                                                </svg>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <p class="card-text text-center text-1000 px-4">منصة للاستخدام ، فريق عمل رائع ولا شيء سوى نتائج رائعة!</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-8 mb-md-0">
-                                            <div class="card card-span h-100 shadow-lg">
-                                                <div class="card-span-img"><img src="assets/img/gallery/user-3.png" alt="" /></div>
-                                                <div class="card-body d-flex flex-column flex-center py-6">
-                                                    <div class="my-4">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                                                </svg>
-                                                            </li>
-                                                            <li class="list-inline-item me-0">
-                                                                <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                                                </svg>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <p class="card-text text-center text-1000 px-4">منصة للاستخدام ، فريق عمل رائع ولا شيء سوى نتائج رائعة!</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

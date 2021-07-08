@@ -130,7 +130,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link {{ (request()->is('admin/testimony*')) ? 'active' : '' }}" href="{{route('testimony.index')}}">
                         <i class="ni ni-favourite-28 text-default"></i>
                         <span class="nav-link-text">اراء المستثمرين</span>
                     </a>
