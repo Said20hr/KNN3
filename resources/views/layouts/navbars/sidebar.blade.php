@@ -124,7 +124,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link {{ (request()->is('admin/note*')) ? 'active' : '' }}" href="{{route('note.index')}}">
                         <i class="ni ni-tv-2 text-default"></i>
                         <span class="nav-link-text">الاخبار</span>
                     </a>

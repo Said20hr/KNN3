@@ -25,7 +25,7 @@ class HomapageController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

@@ -95,6 +95,7 @@ class packsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'low' => ['required', 'numeric'],

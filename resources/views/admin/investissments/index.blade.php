@@ -21,7 +21,7 @@
                             </nav>
                         </div>
                         <div class="">
-                            {{-- <a href="{{route('packs.create')}}" class="btn btn-lg btn-neutral">أضف باقة</a> --}}
+                            <a href="{{route('investissements.create')}}" class="btn btn-lg btn-neutral">أضف استثمار</a>
                         </div>
                     </div>
                 </div>

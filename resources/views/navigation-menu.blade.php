@@ -20,18 +20,18 @@
                     </h2>
                 </x-jet-nav-link>
                 <x-jet-nav-link href="{{route('investment')}}" :active="request()->routeIs('investment')" >
-                    <h2 class="text-xl leading-tight mx-3 {{ (request()->is('investissement')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
+                    <h2 class="text-xl leading-tight mx-3 {{ (request()->is('user/investissement*')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
                     الاستثمارات
                     </h2>
                 </x-jet-nav-link>
 
                 <x-jet-nav-link href="{{route('messages')}}" :active="request()->routeIs('messages')">
-                    <h2 class="font-semibold text-xl mx-3 {{ (request()->is('user/messages')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
+                    <h2 class="font-semibold text-xl mx-3 {{ (request()->is('user/messages*')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
                         الرسائل و الاستفسارات
                     </h2>
                 </x-jet-nav-link>
-                <x-jet-nav-link href="{{route('home')}}">
-                    <h2 class="font-semibold text-xl mx-3">
+                <x-jet-nav-link href="{{route('notes')}}" :active="request()->routeIs('notes')">
+                    <h2 class="font-semibold text-xl mx-3 {{ (request()->is('notes*')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
                        الاخبار
                     </h2>
                 </x-jet-nav-link>
@@ -134,7 +134,7 @@
                     الرسائل و الاستفسارات
                 </h2>
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{route('home')}}">
+            <x-jet-responsive-nav-link href="{{route('notes')}}">
                 <h2 class="font-semibold text-xl mx-3 py-2">
                     الاخبار
                 </h2>

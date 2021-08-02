@@ -16,6 +16,7 @@ class Dashboard extends Component
     public $delayed_count ;
     public $inavailable_count;
     public $substruct_count;
+    public $available_count;
 
     public function mount()
     {
@@ -24,11 +25,11 @@ class Dashboard extends Component
         $this->packs_count = Investissement::where('user_id',$user)->count();
         $this->invest_count = Investissement::where('user_id',$user)->sum('price');
         $this->profit_count = Investissement::where('user_id',$user)->sum('profit');
+        $this->available_count = Investissement::where('user_id',$user)->sum('available');
         $this->withdraw_count = Investissement::where('user_id',$user)->sum('withdraw');
         $this->delayed_count = Investissement::where('user_id',$user)->sum('delayed');
 
-        //substruct_count = Investissement::where('user_id',$user)->sum('substruct');
-        $this->substruct_count = 0;
+        $this->substruct_count = Investissement::where('user_id',$user)->sum('substruct');
         $this->inavailable_count = $this->profit_count - $this->withdraw_count;
 
     }
@@ -43,6 +44,7 @@ class Dashboard extends Component
             'delayed_count'=>$this->delayed_count,
             'substruct_count'=>$this->substruct_count,
             'inavailable_count'=>$this->inavailable_count,
+            'available_count'=>$this->available_count,
         ]);
     }
 }

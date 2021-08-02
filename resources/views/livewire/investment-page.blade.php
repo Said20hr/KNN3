@@ -33,7 +33,7 @@
                     <div class="bg-white-100 border-b border-gray-300 pt-8">
                         <div class="container grid">
                             <h2 class="mb-8 text-xl font-weight-bolder text-gray-600">
-                                البيانات الاستثمارية
+                                 البيانات الاستثمارية : تم سحب {{$invest->withdraw}} $
                             </h2>
                             <div class="grid gap-6 mb-8 md:grid-cols-3 xl:grid-cols-3 bg-gray-100 p-1 rounded-lg ">
                                 <div class="flex items-center justify-between py-6 px-4 border-gray-500 border hhover:bg-gray-50 cursor-pointer rounded-lg shadow-xs ">
@@ -71,11 +71,12 @@
                                 <div class="flex items-center justify-between py-6 px-4 border-gray-500 border hover:bg-gray-50 cursor-pointer rounded-lg shadow-xs ">
                                     <div class="justify-center items-center">
                                         <p class="mb-2 text-sm text-xl font-weight-bolder text-black">
-                                            الأرباح المتوفرة
+                                            مقدار الربح
                                         </p>
                                         <p class="text-lg font-semibold text-green-600 text-white">
                                             {{number_format($invest->profit,0,',','') }} $
                                         </p>
+
                                     </div>
                                     <div class="icon  bg-purple-400 text-white rounded-full bg-green-500 mr-3 px-2 py-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -87,10 +88,10 @@
                                 <div class="flex items-center justify-between py-6 px-4 border-gray-500 border hover:bg-gray-50 cursor-pointer rounded-lg shadow-xs ">
                                     <div class="justify-center items-center">
                                         <p class="mb-2 text-sm text-xl font-weight-bolder text-black">
-                                            أرباح غير متاحة
+                                            الأرباح المتوفرة (المتاحة للسحب)
                                         </p>
                                         <p class="text-lg font-semibold text-green-600 text-white">
-                                            {{number_format($invest->delayed,0,',','') }} $
+                                            {{number_format($invest->available,0,',','') }} $
                                         </p>
                                     </div>
                                     <div class="icon  bg-purple-400 text-white rounded-full bg-green-500 mr-3 px-2 py-2">
@@ -105,7 +106,7 @@
                                             المبلغ المقتطع
                                         </p>
                                         <p class="text-lg font-semibold text-green-600 text-white">
-                                            {{number_format($invest->withdraw,0,',','') }} $
+                                            {{number_format($invest->substruct,0,',','') }} $
                                         </p>
                                     </div>
                                     <div class="icon  bg-purple-400 text-white rounded-full bg-green-500 mr-3 px-2 py-2">
@@ -121,7 +122,7 @@
                                             ارباح مؤجلة
                                         </p>
                                         <p class="text-lg font-semibold text-green-600 text-white">
-                                            0 $
+                                            {{number_format($invest->delayed,0,',','') }} $
                                         </p>
                                     </div>
                                     <div class="icon  bg-purple-400 text-white rounded-full bg-green-500 mr-3 px-2 py-2">

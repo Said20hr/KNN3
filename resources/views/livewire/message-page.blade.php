@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-md-2">
                             <a href="{{route('messages')}}"
-                               class="text-center inline-flex items-center
+                                   class="text-center inline-flex items-center
                             px-6 py-2 bg-green-500 border border-transparent rounded-md font-semibold
                              text-white uppercase  hover:bg-green-600 active:bg-gray-900 focus:outline-none
                              focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-text-center

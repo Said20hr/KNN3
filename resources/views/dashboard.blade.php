@@ -112,7 +112,7 @@
                     <div class="p-6 sm:px-20 bg-white-100 border-b border-gray-300 mt-5">
                         <div class="container grid">
                             <h2 class="mb-8 text-2xl font-weight-bolder text-gray-800">
-                                البيانات الاستثمارية
+                                البيانات الاستثمارية : تم سحب {{$withdraw_count}} $
                             </h2>
                             <div class="grid gap-6 mb-8 md:grid-cols-3 xl:grid-cols-3 bg-white p-1 rounded-lg ">
                                 <div class="flex items-center justify-between py-6 px-4 bg-blue-500 hover:bg-blue-700 cursor-pointer rounded-lg shadow-xs ">
@@ -154,7 +154,7 @@
                                             الأرباح المتاحة للسحب
                                         </p>
                                         <p class="text-lg font-semibold text-gray-700 text-white">
-                                            {{$withdraw_count}} $
+                                            {{$available_count}} $
                                         </p>
                                     </div>
                                     <div class="icon  bg-purple-400 text-yellow-500 rounded-full bg-yellow-100 mr-3 px-2 py-2">

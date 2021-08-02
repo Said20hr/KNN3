@@ -23,10 +23,9 @@ class MessageCreate extends Component
 
 
         $validatedData = $this->validate();
-
-
         $user = Auth::user();
         $exist = message::where('user_id',$user->id)->whereNotNull('reply')->first();
+
         if($exist)
         {
             session()->flash('error_message','لقد قمت بارسال رسالة من قبل , لا يمكنك ارسال اي رسالة الا بعد ان يتم الرد على رسالتك الاولى');

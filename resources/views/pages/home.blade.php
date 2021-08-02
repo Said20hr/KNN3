@@ -191,7 +191,7 @@
         </section>
         <section class="py-8">
             <div class="container " dir="rtl">
-                <div class="d-flex flex-center justify-content-between row">
+                <div class="d-flex flex-center justify-content-between ">
                     <div class="col-lg-5 text-center">
                         <h6 class="fs-3 fs-lg-4 lh-sm fw-bolder">اراء المستثمرين !</h6>
                     </div>
@@ -214,7 +214,7 @@
                                     <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
                                         @foreach($testimony as $key => $testi)
                                             @if($key < 3 &&  $testi->user)
-                                                <div class="col-md-4 mb-4 mb-md-0">
+                                                <div class="col-md-4 my-4 mb-md-0">
                                                     <div class="card card-span h-100 shadow-lg">
                                                         <div class="card-span-img  text-center">
                                                             <img src="{{$testi->user->profile_photo_url}}" alt="" width="100" height="100" class="rounded-circle">
@@ -262,7 +262,7 @@
                                     <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
                                         @foreach($testimony as $key => $testi)
                                             @if($key > 2 && $key < 6 )
-                                                <div class="col-md-4 mb-4 mb-md-0">
+                                                <div class="col-md-4 my-4 mb-md-0">
                                                     <div class="card card-span h-100 shadow-lg">
                                                         <div class="card-span-img  text-center">
                                                             <img src="{{$testi->user->profile_photo_url}}" alt="" width="100" height="100" class="rounded-circle">
@@ -311,7 +311,7 @@
                                     <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
                                         @foreach($testimony as $key => $testi)
                                             @if($key > 5 && $key < 9 )
-                                                <div class="col-md-4 mb-4 mb-md-0">
+                                                <div class="col-md-4 my-4 mb-md-0">
                                                     <div class="card card-span h-100 shadow-lg">
                                                         <div class="card-span-img  text-center">
                                                             <img src="{{$testi->user->profile_photo_url}}" alt="" width="100" height="100" class="rounded-circle">

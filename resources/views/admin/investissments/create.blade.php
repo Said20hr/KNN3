@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-email">مقدار الربح</label>
+                                                <label class="form-control-label" for="input-email">مقدار الربح ( دوﻻر )</label>
                                                 <input type="text" name="profit" id="input-email" class="form-control form-control-alternative" placeholder="مقدار الربح" required="">
                                             </div>
                                         </div>

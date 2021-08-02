@@ -17,18 +17,24 @@ class homepageController extends Controller
      */
     public function index()
     {
-        $user_count = User::all()->count();
-        $users_inv = User::get();
+        $user_count = $users = User::where('role_id',null)->get()->count();
 
-        $invest_count =Investissement::all()->sum('price');
-        $july =Investissement::whereMonth('created_at', '=','7')->sum('price')/1000;
+        $users_inv = User::where('role_id',null)->get();
+
+        $users_inv = $users_inv->sortByDesc(function ($users_inv) {
+            return $users_inv->invest->sum('price');
+        });
+
+
+        $invest_count = Investissement::all()->sum('price');
+        $july = Investissement::whereMonth('created_at', '=','7')->sum('price')/1000;
         $profit_count =Investissement::all()->sum('profit');
 
         $user_this_month = User::whereMonth('created_at', '=',Carbon::now()->month)->count();
-        $invest_month =Investissement::whereMonth('created_at', '=',Carbon::now()->month)->sum('price');
-        $invest_last_month =Investissement::whereMonth('created_at', '=',Carbon::now()->month-1)->sum('price');
-        $profit_month =Investissement::whereMonth('created_at', '=',Carbon::now()->month)->sum('profit');
-        $profit_last_month =Investissement::whereMonth('created_at', '=',Carbon::now()->month-1)->sum('profit');
+        $invest_month = Investissement::whereMonth('created_at', '=',Carbon::now()->month)->sum('price');
+        $invest_last_month = Investissement::whereMonth('created_at', '=',Carbon::now()->month-1)->sum('price');
+        $profit_month = Investissement::whereMonth('created_at', '=',Carbon::now()->month)->sum('profit');
+        $profit_last_month = Investissement::whereMonth('created_at', '=',Carbon::now()->month-1)->sum('profit');
        if ($invest_last_month == 0)
        {
            $progress= 100;

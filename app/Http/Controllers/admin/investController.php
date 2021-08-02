@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Investissement;
 use App\Models\Pack;
-use http\Client\Curl\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -29,7 +29,9 @@ class investController extends Controller
      */
     public function create()
     {
-       //
+        $packs = Pack::all();
+        $users = User::where('role_id',null)->get();
+        return view('admin.investissments.create_user',compact('users','packs'));
     }
 
     /**
@@ -40,6 +42,7 @@ class investController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'user' => ['required', 'numeric'],
             'pack' => ['required', 'numeric'],
@@ -76,7 +79,10 @@ class investController extends Controller
      */
     public function show($id)
     {
-        //
+        $edit=false;
+        $invest = Investissement::findOrFail($id);
+        $packs = Pack::all();
+        return view('admin.investissments.edit-show',compact('invest','packs','edit'));
     }
 
     /**
@@ -87,7 +93,10 @@ class investController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit=true;
+        $invest = Investissement::findOrFail($id);
+        $packs = Pack::all();
+        return view('admin.investissments.edit-show',compact('invest','packs','edit'));
     }
 
     /**
@@ -99,7 +108,37 @@ class investController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'pack' => ['required', 'numeric'],
+            'price' => ['required',  'numeric'],
+            'profit' => ['required',  'numeric'],
+            'withdraw' => ['required',  'numeric'],
+            'available' => ['required',  'numeric'],
+            'substruct' => ['required',  'numeric'],
+            'delayed' => ['required',  'numeric'],
+            'state' => ['required','string'],
+        ]);
+        if ($request->state == 'on')
+        {
+            $etat = true;
+        }
+        else
+        {
+            $etat = false;
+        }
+        $inv = Investissement::findOrFail($id);
+            $inv->status = $etat;
+            $inv->pack_id = $request->pack;
+            $inv->price = $request->price;
+            $inv->profit = $request->profit;
+            $inv->delayed = $request->delayed;
+            $inv->withdraw = $request->withdraw;
+            $inv->available = $request->available;
+            $inv->substruct = $request->substruct;
+            $inv->save();
+
+        return redirect()->back()->with('success_message','تمت تعديل الاستثمار بنجاح');
     }
 
     /**

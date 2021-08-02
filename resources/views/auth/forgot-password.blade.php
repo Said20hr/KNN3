@@ -16,7 +16,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('password.email') }}" dir="rtl" class="py-4">
+        <form method="POST" action="{{ route('password.email') }}" dir="rtl" class="py-4 text-right" >
             @csrf
 
             <div class="block">
@@ -24,7 +24,7 @@
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
-            <div class="items-center text-center mt-4 justify-center">
+            <div class="items-center text-right mt-4 justify-center" dir="rtl">
                 <x-jet-button>
                     {{ __(' ارسال رابط إعادة تعيين كلمة مرور') }}
                 </x-jet-button>

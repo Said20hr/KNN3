@@ -8,20 +8,10 @@
             <div class="col-xl-12 mb-5 mb-xl-0">
                 <div class="card bg-gradient-default shadow">
                     <div class="card-header bg-transparent">
-                        <div class="row align-items-center">
-                            <div class="col">
+                        <div class="row align-items-center justify-content-end">
+                            <div class="col text-right">
                                 <h6 class="text-uppercase text-light ls-1 mb-1">ملخص</h6>
                                 <h2 class="text-white mb-0">قيمة الاستثمارات</h2>
-                            </div>
-                            <div class="col">
-                                <ul class="nav nav-pills justify-content-end">
-                                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 0,{{$july}}, 0, 0, 0, 0, 0, 0]}]}}' data-prefix="$" data-suffix="k">
-                                        <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                                            <span class="d-none d-md-block">شهر</span>
-                                            <span class="d-md-none">M</span>
-                                        </a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -53,7 +43,7 @@
                         <table class="table align-items-center table-flush text-right">
                             <thead class="bg-gray">
                                 <tr>
-                                    <th scope="col" colspan="font-weight-700 h3">اسم لمستثمر</th>
+                                    <th scope="col" colspan="font-weight-700 h3">اسم المستثمر</th>
                                     <th scope="col" colspan="font-weight-700 h3">قيمة الاستثمار</th>
                                     <th scope="col" colspan="font-weight-700 h3">مرات الاستثمار</th>
                                     <th scope="col" colspan="font-weight-700 h3">اجمالى الربح</th>
@@ -66,13 +56,13 @@
                                    {{$user->name}}
                                     </th>
                                     <td>
-                                        {{$user->invest->sum('price')}}   دوﻻر
+                                        <i class="fas fa-money-bill text-success mr-3"></i> {{$user->invest->sum('price')}}   دوﻻر
                                     </td>
                                     <td>
-                                        {{$user->invest->sum('profit')}}
+                                        <i class="fas fa-business-time text-yellow-500 mr-3"></i> {{$user->invest->count()}} اسثمار
                                     </td>
                                     <td>
-                                        <i class="fas fa-arrow-up text-success mr-3"></i> 100%
+                                        <i class="fas fa-chart-line text-info mr-3"></i> {{$user->invest->sum('profit')}}  دوﻻر
                                     </td>
                                 </tr>
                             @endforeach
@@ -207,11 +197,66 @@
 @endsection
 
 @push('js')
+
     <script type="text/javascript">
         $('#something').click(function() {
             location.reload();
         });
+
     </script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script type="text/javascript">
+        function init($chart) {
+
+            var salesChart = new Chart($chart, {
+                type: 'line',
+                options: {
+                    scales: {
+                        yAxes: [{
+                            gridLines: {
+                                color: Charts.colors.gray[900],
+                                zeroLineColor: Charts.colors.gray[900]
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    if (!(value % 10)) {
+                                        return '$' + value + 'k';
+                                    }
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+                                var label = data.datasets[item.datasetIndex].label || '';
+                                var yLabel = item.yLabel;
+                                var content = '';
+
+                                if (data.datasets.length > 1) {
+                                    content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                }
+
+                                content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
+                                return content;
+                            }
+                        }
+                    }
+                },
+                data: {
+                    labels: ['Jan','Fev','Mars','Avr','May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Performance',
+                        data: [0,0,0,0,0,0,{{$july}},0,0,0,0,0,0]
+                    }]
+                }
+            });
+
+            // Save to jQuery object
+
+            $chart.data('chart', salesChart);
+
+        };
+    </script>
 @endpush

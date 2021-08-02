@@ -9,7 +9,7 @@ class Investissement extends Model
 {
     use HasFactory;
 
-    protected $fillable=['status' ,'delayed' ,'withdraw', 'available', 'available' ,'profit', 'price' ,'pack_id' ,'user_id'];
+    protected $fillable=['status' ,'delayed' ,'withdraw','available' ,'profit', 'price','substruct','pack_id' ,'user_id'];
 
     public function pack()
     {

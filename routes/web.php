@@ -22,6 +22,7 @@ Route::group([
         Route::resource('/packs', App\Http\Controllers\admin\packsController::class);
         Route::resource('/investissements', App\Http\Controllers\admin\investController::class);
         Route::resource('/testimony', App\Http\Controllers\admin\TestimonyController::class);
+        Route::resource('/note', App\Http\Controllers\admin\NotesController::class);
         Route::resource('/messages', App\Http\Controllers\admin\messageController::class)->except(['create','store']);
         Route::get('/investissements/create/{id}', [App\Http\Controllers\admin\investController::class,'investCreate'])->name('user.invest');
     }
@@ -53,7 +54,10 @@ Route::group([
         Route::get('messages/{message}', App\Http\Livewire\MessagePage::class)->name('message.show');
         Route::get('message/send', App\Http\Livewire\MessageCreate::class)->name('message.send');
         Route::delete('message/{message}', App\Http\Livewire\MessageCreate::class)->name('message.delete');
-}
+        Route::get('/notes', \App\Http\Livewire\Notes::class)->name('notes');
+        Route::get('/notes/{note}', \App\Http\Livewire\NotePage::class)->name('notes.show');
+
+    }
 );
 
 

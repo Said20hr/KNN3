@@ -22,7 +22,7 @@ class usersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('role_id',null)->get();
         return view('admin.users.index',compact('users'));
     }
 
@@ -81,11 +81,6 @@ class usersController extends Controller
         ]);
         if ($request->image) {
             $img=  $request->image;
-            $img->resize(400, 400, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            dd($img);
-
             $user->updateProfilePhoto($img);
         }
 
