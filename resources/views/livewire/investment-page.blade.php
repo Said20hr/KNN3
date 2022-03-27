@@ -1,18 +1,4 @@
 
-    <x-slot name="header">
-        <div class="d-flex flex">
-            <a href="{{route('dashboard')}}" class="font-semibold text-lg text-gray-400 leading-tight mx-3">
-                {{ __(' الرئيسية') }}
-            </a> ·
-            <a href="{{route('investment')}}" class="font-semibold text-lg text-gray-600 leading-tight mx-3">
-                {{ __(' الاستثمارات') }}
-            </a> ·
-            <h2 class="font-semibold text-lg text-gray-800 leading-tight mx-3">
-                {{ __('الاستثمار ') }}
-            </h2>
-        </div>
-
-    </x-slot>
     <div class="container mx-auto">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-8">
 

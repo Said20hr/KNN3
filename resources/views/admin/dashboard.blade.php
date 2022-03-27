@@ -9,9 +9,9 @@
                 <div class="card bg-gradient-default shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center justify-content-end">
-                            <div class="col text-right">
-                                <h6 class="text-uppercase text-light ls-1 mb-1">ملخص</h6>
-                                <h2 class="text-white mb-0">قيمة الاستثمارات</h2>
+                            <div class="col">
+                                <h6 class="text-uppercase text-light ls-1 mb-1">Highlight</h6>
+                                <h2 class="text-white mb-0">Investment Price</h2>
                             </div>
                         </div>
                     </div>
@@ -25,28 +25,28 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-5" dir="rtl">
+        <div class="row mt-5">
             <div class="col-xl-12 mb-5" >
                 <div class="card shadow" >
                     <div class="card-header border-0">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="">
-                                <h3 class="mb-0">ترتيب المستثمرين</h3>
+                                <h3 class="mb-0">investors standing</h3>
                             </div>
                             <div class="">
-                                <a href="{{route('investissements.index')}}" class="btn btn-sm btn-primary">شاهد الجميع</a>
+                                <a href="{{route('investissements.index')}}" class="btn btn-sm btn-primary">See more</a>
                             </div>
                         </div>
                     </div>
                     <div class="table-responsive">
                         <!-- Projects table -->
-                        <table class="table align-items-center table-flush text-right">
+                        <table class="table align-items-center table-flush">
                             <thead class="bg-gray">
                                 <tr>
-                                    <th scope="col" colspan="font-weight-700 h3">اسم المستثمر</th>
-                                    <th scope="col" colspan="font-weight-700 h3">قيمة الاستثمار</th>
-                                    <th scope="col" colspan="font-weight-700 h3">مرات الاستثمار</th>
-                                    <th scope="col" colspan="font-weight-700 h3">اجمالى الربح</th>
+                                    <th scope="col" colspan="font-weight-700 h3">Name</th>
+                                    <th scope="col" colspan="font-weight-700 h3"> Amount</th>
+                                    <th scope="col" colspan="font-weight-700 h3">Investment packs</th>
+                                    <th scope="col" colspan="font-weight-700 h3">Total profit</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,13 +56,13 @@
                                    {{$user->name}}
                                     </th>
                                     <td>
-                                        <i class="fas fa-money-bill text-success mr-3"></i> {{$user->invest->sum('price')}}   دوﻻر
+                                        <i class="fas fa-money-bill text-success mr-3"></i> {{$user->invest->sum('price')}}   USD
                                     </td>
                                     <td>
-                                        <i class="fas fa-business-time text-yellow-500 mr-3"></i> {{$user->invest->count()}} اسثمار
+                                        <i class="fas fa-business-time text-yellow-500 mr-3"></i> {{$user->invest->count()}} Investment
                                     </td>
                                     <td>
-                                        <i class="fas fa-chart-line text-info mr-3"></i> {{$user->invest->sum('profit')}}  دوﻻر
+                                        <i class="fas fa-chart-line text-info mr-3"></i> {{$user->invest->sum('profit')}}  USD
                                     </td>
                                 </tr>
                             @endforeach
@@ -77,20 +77,20 @@
                     <div class="card-header border-0">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="">
-                                <h3 class="mb-0">متتبعينا عبر التواصل الاجتماعي</h3>
+                                <h3 class="mb-0">Our followers</h3>
                             </div>
-                            <div class=" text-right">
-                                <a href="#!" class="btn btn-sm btn-primary">تصفح</a>
+                            <div class="">
+                                <a href="#!" class="btn btn-sm btn-primary">View</a>
                             </div>
                         </div>
                     </div>
                     <div class="table-responsive">
                         <!-- Projects table -->
-                        <table class="table align-items-center table-flush text-right">
+                        <table class="table align-items-center table-flush">
                             <thead class="bg-gray">
                                 <tr>
-                                    <th scope="col">الموقع</th>
-                                    <th scope="col">المتابعين</th>
+                                    <th scope="col">Website</th>
+                                    <th scope="col">Followers</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>

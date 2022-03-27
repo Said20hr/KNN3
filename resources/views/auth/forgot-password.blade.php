@@ -4,8 +4,8 @@
             <x-jet-authentication-card-logo />
         </x-slot>
 
-        <div class="mb-4 pt-3 text-md text-gray-600 text-right">
-            {{ __('نسيت كلمة المرور؟ لا مشكلة. فقط أخبرنا بعنوان بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور عبر البريد الإلكتروني الذي سيسمح لك باختيار عنوان جديد ') }}
+        <div class="mb-4 text-sm text-gray-600">
+            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </div>
 
         @if (session('status'))
@@ -16,17 +16,17 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('password.email') }}" dir="rtl" class="py-4 text-right" >
+        <form method="POST" action="{{ route('password.email') }}">
             @csrf
 
             <div class="block">
-                <x-jet-label for="email" value="{{ __('البريد الالكتروني') }}" />
+                <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
-            <div class="items-center text-right mt-4 justify-center" dir="rtl">
+            <div class="flex items-center justify-end mt-4">
                 <x-jet-button>
-                    {{ __(' ارسال رابط إعادة تعيين كلمة مرور') }}
+                    {{ __('Email Password Reset Link') }}
                 </x-jet-button>
             </div>
         </form>

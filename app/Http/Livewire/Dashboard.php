@@ -28,10 +28,8 @@ class Dashboard extends Component
         $this->available_count = Investissement::where('user_id',$user)->sum('available');
         $this->withdraw_count = Investissement::where('user_id',$user)->sum('withdraw');
         $this->delayed_count = Investissement::where('user_id',$user)->sum('delayed');
-
         $this->substruct_count = Investissement::where('user_id',$user)->sum('substruct');
         $this->inavailable_count = $this->profit_count - $this->withdraw_count;
-
     }
 
     public function render()

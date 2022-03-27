@@ -26,8 +26,8 @@
         <link href="{{ asset('argon/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
         <link href="{{ asset('argon/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
         <!-- Argon CSS -->
-        <link rel="stylesheet"  href="{{asset('assets/css/util.css') }}" type="text/css">
         <link type="text/css" href="{{ asset('argon/css/argon.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     </head>
     <body class="{{ $class ?? '' }}">
@@ -43,9 +43,6 @@
             @yield('content')
         </div>
 
-        @guest()
-            @include('layouts.footers.guest')
-        @endguest
 
         <script src="{{ asset('argon/vendor/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('argon/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

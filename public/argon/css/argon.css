@@ -5285,7 +5285,7 @@ input[type='button'].btn-block
     margin-bottom: 0;
     padding-left: 0;
     list-style: none;
-    text-align: right;
+    text-align: left;
 }
 .navbar-nav .nav-link
 {
@@ -19573,7 +19573,7 @@ textarea[resize='horizontal']
     }
     .navbar-vertical.navbar-expand-md .navbar-nav .nav-link
     {
-        padding: .65rem 1.5rem;
+        padding: .35rem 0.5rem;
     }
     .navbar-vertical.navbar-expand-md .navbar-nav .nav-link.active:before
     {

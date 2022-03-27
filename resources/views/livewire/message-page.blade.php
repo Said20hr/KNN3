@@ -1,16 +1,3 @@
-
-
-    <x-slot name="header">
-    <div class="d-flex flex">
-        <a href="{{route('dashboard')}}" class="font-semibold text-lg text-gray-400 leading-tight mx-3">
-            {{ __(' الرئيسية') }}
-        </a> ·
-        <h2 class="font-semibold text-lg text-gray-800 leading-tight mx-3">
-            {{ __('الرسائل و الاستفسارات') }}
-        </h2>
-    </div>
-
-</x-slot>
 <div class="container mx-auto">
     <div class="max-w-7xl py-10 lg:px-8  ">
 

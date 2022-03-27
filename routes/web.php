@@ -40,6 +40,11 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
+Route::get('/state', function () {
+    return view('pages.state');
+})->name('state');
+
+
 
 
 Route::group([
@@ -51,6 +56,7 @@ Route::group([
         Route::get('/investissement', \App\Http\Livewire\Investment::class)->name('investment');
         Route::get('/investissement/{investment}', App\Http\Livewire\InvestmentPage::class)->name('investment.show');
         Route::get('messages', App\Http\Livewire\Messages::class)->name('messages');
+        Route::get('cashier', App\Http\Livewire\Cashier::class)->name('cashier');
         Route::get('messages/{message}', App\Http\Livewire\MessagePage::class)->name('message.show');
         Route::get('message/send', App\Http\Livewire\MessageCreate::class)->name('message.send');
         Route::delete('message/{message}', App\Http\Livewire\MessageCreate::class)->name('message.delete');

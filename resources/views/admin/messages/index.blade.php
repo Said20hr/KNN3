@@ -8,16 +8,16 @@
         <!-- Header -->
         <div class="header bg-primary ">
             <div class="container-fluid">
-                <div class="header-body py-6" dir="rtl">
+                <div class="header-body py-6">
                     <div class="d-flex justify-content-between align-items-center py-8">
                         <div class="">
 
-                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
 
-                                    <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                        الرسائل الاستفسارية  </li>
+                                        Messages</li>
                                 </ol>
                             </nav>
                         </div>
@@ -26,10 +26,10 @@
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--8" dir="rtl">
+        <div class="container-fluid mt--8">
 
-            <div class="card text-right">
-                <div class="p-t-28 p-lr-20">
+            <div class="card">
+                <div class="">
                     @if(session()->has('success_message'))
                         <div class="alert alert-success fs-20">{{session()->get('success_message')}}</div>
                     @endif
@@ -39,7 +39,7 @@
                 </div>
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">جدول الرسائل </h3>
+                    <h3 class="mb-0">Table </h3>
                 </div>
 
                 <!-- Light table -->
@@ -48,11 +48,11 @@
                         <thead class="thead-light">
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col" class="sort" data-sort="name"> اسم المرسل</th>
-                            <th scope="col" class="sort" data-sort="budget">الموضوع </th>
-                            <th scope="col" class="sort" data-sort="status">تاريخ الارسال</th>
-                            <th scope="col" class="sort" data-sort="status">الرد</th>
-                            <th scope="col"></th>
+                            <th scope="col" class="sort" data-sort="name"> Sender</th>
+                            <th scope="col" class="sort" data-sort="budget">Subject </th>
+                            <th scope="col" class="sort" data-sort="status">Date</th>
+                            <th scope="col" class="sort" data-sort="status">Reply</th>
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody class="list">
@@ -81,23 +81,23 @@
                                     @if($message->reply)
                                         <span class="badge badge-dot ml-4">
                                         <i class="bg-success"></i>
-                                        <span class="status">تم الرد</span>
+                                        <span class="status">Answered</span>
                                     </span>
                                     @else
                                         <span class="badge badge-dot ml-4">
                                         <i class="bg-danger"></i>
-                                        <span class="status">في الانتظار</span>
+                                        <span class="status">Pending</span>
                                     </span>
                                     @endif
                                 </td>
                             <td class="text-right">
                                 <div class="d-flex ">
-                                    <a href="{{route('messages.edit',$message->id)}}"class="btn btn-sm btn-success mx-2" >رد</a>
-                                    <a href="{{route('messages.show',$message->id)}}" class="btn btn-sm btn-primary mx-2" >شاهد</a>
+                                    <a href="{{route('messages.edit',$message->id)}}"class="btn btn-sm btn-success mx-2" >Reply</a>
+                                    <a href="{{route('messages.show',$message->id)}}" class="btn btn-sm btn-primary mx-2" >View</a>
                                     <form action="{{ route('messages.destroy',$message->id)}}"  method="POST" class="">
                                         @method('DELETE')
                                         @csrf
-                                        <button class="btn btn-sm btn-danger mx-2" type="submit">حذف</button>
+                                        <button class="btn btn-sm btn-danger mx-2" type="submit">Delete</button>
                                     </form>
                                     </div>
                             </td>
@@ -107,7 +107,8 @@
                     </table>
                 </div>
                 <!-- Card footer -->
-                <div class="card-footer py-4 text-center">
+                @if($messages->count() >10)
+                    <div class="card-footer py-4 text-center">
                     <nav aria-label="...">
                         <ul class="pagination justify-content-center mb-0">
                             <li class="page-item disabled">
@@ -132,6 +133,7 @@
                         </ul>
                     </nav>
                 </div>
+                @endif
             </div>
 
         </div>
