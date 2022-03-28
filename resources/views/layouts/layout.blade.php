@@ -31,7 +31,7 @@
     <link href="{{ asset('argon/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <!--===============================================================================================-->
     <link href="{{asset('assets/css/theme.css')}}" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <!-- Styles -->
     @livewireStyles
     <!-- Scripts -->
