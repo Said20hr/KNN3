@@ -44,10 +44,17 @@
                                     <td class="text-base text-gray-700 px-4 py-4 whitespace-nowrap font-semibold">
                                         <span class="font-bold">$</span>{{number_format($asset->marketCapUsd/1000000000,2,'.') }}b
                                     </td>
-                                    <td class="text-base {{$asset->changePercent24Hr < 0 ? 'text-red-500' :'text-emerald-500'}} px-4 py-4 whitespace-nowrap font-semibold">
-                                        <i class="fa fa-arrow-up"></i>
+                                    @if($asset->changePercent24Hr < 0 )
+                                    <td class="text-base text-red-500 px-4 py-4 whitespace-nowrap font-semibold">
+                                        <i class="fa fa-arrow-down"></i>
                                         {{number_format($asset->changePercent24Hr,2,'.') }}%
                                     </td>
+                                    @else
+                                        <td class="text-base text-emerald-500 px-4 py-4 whitespace-nowrap font-semibold">
+                                            <i class="fa fa-arrow-up"></i>
+                                            {{number_format($asset->changePercent24Hr,2,'.') }}%
+                                        </td>
+                                    @endif
                                     <td class="px-6 py-4 whitespace-nowrap font-semibold">
                                         <a href="#" class="btn btn-success">Trade</a>
                                     </td>
