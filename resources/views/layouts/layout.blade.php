@@ -15,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!--===============================================================================================-->
     <!--===============================================================================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <!--===============================================================================================-->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
@@ -30,6 +33,8 @@
     <link href="{{ asset('argon/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
     <link href="{{ asset('argon/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <!--===============================================================================================-->
+
+
     <link href="{{asset('assets/css/theme.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <!-- Styles -->
@@ -50,7 +55,7 @@
 @endif
 
 <!-- Page Content -->
-    <main class="main" id="top">
+    <main>
         @include('includes.header')
         @yield('content')
         @include('includes.footer')

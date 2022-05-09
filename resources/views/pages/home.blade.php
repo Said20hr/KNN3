@@ -3,63 +3,86 @@
 @section('content')
     <main class="main" id="top">
         <section class="" id="home">
-            <div class="bg-holder d-sm-none" style="background-image:url({{asset('assets/img/illustrations/hero-bg.png')}});background-position:right top;background-size:contain;"></div>
+            <div class="bg-holder hidden h-screen lg:block" style="background-image:url({{asset('assets/img/illustrations/hero-bg.png')}});background-position:right top; transform: scaleX(-1);background-size:50%;"></div>
             <div class="container">
-                <div class="flex justify-center pt-20">
+                <div class="lg:flex lg:justify-end lg:pt-20 pt-8">
                     <div class="w-2/3 h-full my-auto">
-                        <h1 class="text-5xl my-4 font-semibold">Start your financial future today</h1>
-                        <p class="text-2xl leading-relaxed text-blueGray-500 mt-4">
+                        <h1 class=" text-3xl lg:text-6xl my-4 lg:leading-snug font-semibold">Start your financial  <span class="text-info">future Adfluencerz</span></h1>
+                        <p class="text-lg lg:text-2xl lg:leading-snug text-gray-600 lg:mt-6">
                             New to investing, or just not sure where to put your money? <br>
                             We'll connect you to investment opportunities around the world.<br>
                             Earn passive income with loan investments.
                             Connect with thousands of opportunities from around the world on Europe’s leading platform.
                         </p>
-                        <div class="mt-4">
-                            <button type="button" class="btn btn-primary text-lg font-semibold">Get Started</button>
-                        </div>
                     </div>
-                    <div class="w-1/2 " style="background-image: url('{{asset('assets/img/bg/Pattern.svg')}}');background-size: cover">
+                   {{-- <div class="lg:w-1/2 w-full lg:my-0 my-12 p-4" style="background-image: url('{{asset('assets/img/bg/Pattern.svg')}}');background-size: cover">
                         <img src="{{asset('assets/img/illustrations/hero-image.6c6b71f.png')}}" alt="hero-wb" class="object-cover pl-4">
-                    </div>
+                    </div>--}}
                 </div>
+                <div class="lg:w-11/12 w-full flex flex-wrap ml-auto lg:pt-20 pt-6">
+                    <div class="lg:px-6 w-1/2 lg:w-1/4">
+                        <div class="lg:text-6xl text-2xl text-gray-700 font-bold mb-4">
+                            <span class="text-6xl text-gray-700 font-bold mb-4" id="status1" countto="350">350 </span><span>+</span>
+                        </div>
+                        <div class="text-xl">Over 500 business powered with us</div>
+                    </div>
+                    <div class="lg:px-6 w-1/2 lg:w-1/4">
+                        <div class="lg:text-6xl text-2xl text-gray-700 font-bold mb-4">
+                            <div class="text-6xl text-gray-700 font-bold mb-4" id="status2" countto="4.8">4.8</div>
+                        </div>
+                        <div class="text-xl">Rating on google play and app store</div>
+                    </div>
+                    <div class="lg:px-6 w-1/2 lg:w-1/4">
+                        <div class="lg:text-6xl text-2xl text-gray-700 font-bold mb-4">
+                            <span class="text-6xl text-gray-700 font-bold mb-4" id="status3" countto="750">750</span><span>k</span>
+                        </div>
+                        <div class="text-xl">Users used our platform in around the world</div>
+                    </div>
+                    <div class="lg:px-6 w-1/2 lg:w-1/4">
+                        <div class="lg:text-6xl text-2xl text-gray-700 font-bold mb-4">
+                            <span class="text-6xl text-gray-700 font-bold mb-4" id="status4" countto="24">24 </span><span>+</span>
+                        </div>
+                        <div class="text-xl">More than 30 countries trust our platform</div>
+                    </div>
 
+                </div>
             </div>
         </section>
-        <section class="py-5">
-            <div class="bg-holder d-none d-sm-block" style="background-image:url({{asset('assets/img/illustrations/category-bg.png')}});background-position:right top;background-size:200px 320px;"></div>
+        <section class="py-5 lg:py-20">
+            <div class="bg-holder hidden lg:flex" style="background-image:url({{asset('assets/img/illustrations/category-bg.png')}});background-position:right top;background-size:200px 320px;"></div>
             <div class="container">
                 <div class="flex justify-center">
-                    <div class="w-9/12 text-center mb-7">
-                        <h5 class="text-5xl font-bold">How our platform process easy to use?</h5>
+                    <div class="lg:w-9/12 w-full text-center lg:pb-24 pb-12">
+                        <h5 class="text-4xl lg:text-5xl font-bold px-2 leading-snug">How our platform process easy to use?</h5>
                     </div>
                 </div>
-                <div class="flex flex-center items-start">
-                    <div class="w-1/4 px-2 text-center">
-                        <img src="{{asset('assets/img/illustrations/Login.svg')}}" alt="login" class="h-56">
-                        <h3 class="font-bold text-blueGray-800 text-2xl px-2">Login or Sign up to be able use our platform</h3>
-                        <p class="text-base text-blueGray-600 text-xl px-2 my-3">You must log in first to be able to use our platform to get your product analytics</p>
+                <div class="lg:flex lg:flex-center lg:items-start">
+                    <div class="w-full lg:w-1/4 px-2 text-center">
+                        <img src="{{asset('assets/img/illustrations/Login.svg')}}" alt="login" class="lg:h-56 w-full mx-auto">
+                        <h3 class="font-bold text-blueGray-800 text-4xl lg:text-2xl lg:px-2">Login or Sign up to be able use our platform</h3>
+                        <p class="text-base text-blueGray-600 text-2xl lg:text-xl my-3">You must log in first to be able to use our platform to get your product analytics</p>
                     </div>
-                    <div class="pt-24">
-                        <img src="{{asset('assets/img/icons/x-direction-line.png')}}" alt="direction">
+                    <div class="py-20 lg:pt-24">
+                        <img src="{{asset('assets/img/icons/x-direction-line.png')}}" alt="direction" class="rotate-90 lg:rotate-0 mx-auto">
                     </div>
-                    <div class="w-1/4 px-2 text-center">
-                        <img src="{{asset('assets/img/illustrations/Connect.svg')}}" alt="data" class="h-56">
-                        <h3 class="font-bold text-blueGray-800 text-2xl px-2">Connect your website with just a few click</h3>
-                        <p class="text-base text-blueGray-600 text-xl px-2 my-3">You must log in first to be able to use our platform to get your product analytics</p>
+                    <div class="w-full lg:w-1/4 px-2 text-center">
+                        <img src="{{asset('assets/img/illustrations/Connect.svg')}}" alt="data" class="lg:h-56 w-full mx-auto">
+                        <h3 class="font-bold text-blueGray-800 text-4xl lg:text-2xl lg:px-2">Connect your website with just a few click</h3>
+                        <p class="text-base text-blueGray-600 text-2xl lg:text-xl my-3">Select the application you wanted to be able to connect with just a few clicks</p>
                     </div>
-                    <div class="pt-24">
-                        <img src="{{asset('assets/img/icons/direction-line.png')}}" alt="xdirection">
+                    <div class="py-20 lg:pt-24">
+                        <img src="{{asset('assets/img/icons/direction-line.png')}}" alt="xdirection" class="rotate-90 lg:rotate-0 mx-auto">
                     </div>
-                    <div class="w-1/4 px-2 text-center">
-                        <img src="{{asset('assets/img/illustrations/Get-data.svg')}}" alt="Connect" class="h-56">
-                        <h3 class="font-bold text-blueGray-800 text-2xl px-2">Take some sales data  that you want</h3>
-                        <p class="text-base text-blueGray-600 text-xl px-2 my-3">You must log in first to be able to use our platform to get your product analytics</p>
+                    <div class="w-full lg:w-1/4 px-2 text-center">
+                        <img src="{{asset('assets/img/illustrations/Get-data.svg')}}" alt="Connect" class="lg:h-56 w-full mx-auto">
+                        <h3 class="font-bold text-blueGray-800 text-4xl lg:text-2xl lg:px-2">Take some sales data  that you want</h3>
+                        <p class="text-base text-blueGray-600 text-2xl lg:text-xl my-3">You already have sales data of your product with some variants you want</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="py-5">
-            <div class="bg-holder" style="background-image:url({{asset('assets/img/illustrations/bg.png')}});background-position:left top;background-size:initial;margin-top:-180px;"></div>
+        <section class="py-5 lg:py-20">
+            <div class="bg-holder hidden lg:flex" style="background-image:url({{asset('assets/img/illustrations/bg.png')}});background-position:left top;background-size:initial;margin-top:-180px;"></div>
             <div class="container">
                 <div class="flex">
                     <div class="w-2/3">
@@ -82,7 +105,6 @@
                 </div>
             </div>
         </section>
-
         <section class="py-5">
             <div class="bg-holder d-none d-sm-block" style="background-image:url({{asset('assets/img/illustrations/category-bg.png')}});background-position:right top;background-size:200px 320px;"></div>
             <div class="container">
@@ -164,4 +186,54 @@
             </div>
         </section>
     </main>
+    @push('modals')
+        <script src="{{asset('assets/js/plugins/countup.min.js')}}"></script>
+        <script>
+            if (document.getElementById('status1')) {
+                const options = {
+                    duration: 0.7,
+                };
+                const countUp = new CountUp('status1', document.getElementById("status1").getAttribute("countTo"),options);
+                if (!countUp.error) {
+                    countUp.start();
+                } else {
+                    console.error(countUp.error);
+                }
+            }
+            if (document.getElementById('status2')) {
+                const options = {
+                    decimalPlaces: 1,
+                    duration: 1,
+                };
+                const countUp = new CountUp('status2', document.getElementById("status2").getAttribute("countTo"),options);
+                if (!countUp.error) {
+                    countUp.start();
+                } else {
+                    console.error(countUp.error);
+                }
+            }
+            if (document.getElementById('status3')) {
+                 const options = {
+                    duration: 4,
+                };
+                const countUp = new CountUp('status3', document.getElementById("status3").getAttribute("countTo"),options);
+                if (!countUp.error) {
+                    countUp.start();
+                } else {
+                    console.error(countUp.error);
+                }
+            }
+            if (document.getElementById('status4')) {
+                 const options = {
+                    duration: 4,
+                };
+                const countUp = new CountUp('status4', document.getElementById("status4").getAttribute("countTo"),options);
+                if (!countUp.error) {
+                    countUp.start();
+                } else {
+                    console.error(countUp.error);
+                }
+            }
+        </script>
+    @endpush
 @endsection
