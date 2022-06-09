@@ -1,75 +1,63 @@
 @extends('layouts.layout')
 
 @section('content')
-    <main class="main" id="top">
+    <main >
 
 
-        <section class="p-tb-120">
-
-            <!--/.bg-holder-->
-
+        <section class="pt-32">
             <div class="container">
-                <div class="row flex-center">
-                    <div class="col-md-5 order-md-0 text-center text-md-start">
-                        <img class="img-fluid mb-4" src="assets/img/illustrations/passion.png" width="450" alt="" /></div>
-                    <div class="col-md-7 text-center text-md-center">
-                        <h6 class="fw-bold fs-2 fs-lg-6 display-2 lh-sm">عن المشروع </h6>
-                        <p class="my-4 text-right fs-20">
-                            هنا شركة كنّع الفلسطينية حيث تحتوي على ثلاثة أنظمة برمجية، الأول نظام تجارة الكتروني
-                            التجارة الفلسطينية لأجل الآخرين - - PCFO لتسهيل عملية التجارة في فلسطين
-                            بشكل مبدئي ثم إلى أنحاء الوطن العربي والعالم ،الثاني نظام منصة تعليمية تعلماً ذاتياً
-                            نحو القمة –STTT-  حيث نوفر فيها دورات من مدربين مختصين في مجالات متعددة منها البرمجة
-                            والعملات الرقمية والتسويق الالكتروني، وكيفية الربح دون الحاجة لخبرات في مجالات معينة
-                            والكثير من الدورات المتميزة. والثالث نظام تواصل اجتماعي عالمي سوشال آب – Social App
-                            مثل التطبيقات الأخرى ولكنه يضم جميع أفكارهم وقمنا على حل مشاكل وإضافة ميزات جديدة عليه
+                <div class="flex">
+                    <div class="w-2/3 my-auto">
+                        <h6 class="text-5xl font-bold leading-tight">We are a global platform for investing in Stocks</h6>
+                        <p class="my-4 text-xl leading-relaxed">
+                            Global platform for investing in stocks, is a go-to investment platform where retail investors can invest in a
+                            diversified way in income-producing assets to build wealth in the long term.
+                            By rethinking how money flows across borders from those who want to save and invest to those who want to borrow,
+                            we are revolutionizing financial services and contributing to financial inclusion on a global scale.
                         </p>
+                    </div>
+                    <div class="w-1/2">
+                        <img class="img-fluid mb-4" src="{{asset('assets/img/illustrations/Right.svg')}}" alt="who-we-are" />
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- <section> begin ============================-->
-                <section class="pb-8">
-
-                    <div class="container" dir="rtl">
-                        <div class="row flex-center">
-                            <div class="col-md-7 text-right ">
-                                <h6 class="fw-bold fs-2 fs-lg-5 display-2 lh-sm">الهدف من المشروع  </h6>
-                                <p class="my-4 text-right fs-19">
-                                    كان الهدف منذ البداية هو إيجاد حلول لمشاكل متواجدة في الحياة التكنولوجية الاجتماعية لتسهيل الحياة
-                                    على الناس، وعمل أيضاً على زيادة فرص العمل للشباب وزيادة الثقة في الشعب العربي
-                                    على أنه قادر رغم كل الظروف، وكسر جميع الظروف والحجج لعدم التقدم والتطور،
-                                    فإن لم تكن المبادرة من الشعب والأشخاص أنفسهم فمن من ستكون؟<br/>، فمركز التجارة
-
-                                    وُجد لضمان وصول المنتجات للأفراد ضمن المعايير المطلوبة والمناسبة دون أي خلل ويضمن
-                                    الراحة والثقة لجميع الجهات. المنصة التعليمية وجدت لتوعية الشعب وترقيته من ذاته ونكون
-                                    عون لبعضنا البعض لضمان توفر خبرات وعمل ذاتي لهؤلاء الأشخاص من تلقاء أنفسهم مما يزيد
-                                    ثقة الفرد بنفسه ما يجعله قادر على الإنتاج والإبداع ووقف التبعية لدى الآخرين.<br/>
-                                    تطبيق
-                                    Social App وُجد لضمان حرية التعبير الحقيقية وليست المزيفة لدى الناس عامة من خلال عملية
-                                    تشفير معقدة لقاعدة البيانات والكثير من الميّزات. ولكن يكفي أن هناك تطبيق تواصل اجتماعي
-                                    عربي فلسطيني. يكفينا شرف المحاولة حتى وإن فشلنا فلن نتوقف بل سنستمر حتى نصل لما نريد.
-                                </p>
+        <section class="">
+            <div class="container">
+                <div class="flex justify-around">
+                    <div class="w-2/5" style="background-image: url('{{asset('assets/img/bg/Pattern-abt.png')}}');background-size: cover">
+                        <img class="" src="{{asset('assets/img/illustrations/abt.png')}}" alt="abt" />
+                    </div>
+                    <div class="w-2/5">
+                        <h6 class="text-4xl font-bold leading-tight mb-3">The reasons to prefer choosing our platform </h6>
+                        <p class="mb-3 text-base leading-relaxed text-blueGray-600">
+                            Seamless integration of more than 20+ apps that can help analytics your product
+                        </p>
+                        <div class="flex flex-wrap justify-between">
+                            <div class="w-1/2 mb-4">
+                                <img src="{{asset('assets/img/icons/Chart.svg')}}" alt="icon1" class="">
+                                <h3 class="font-bold my-2 text-xl">Real time data</h3>
+                                <p class="text-base w-11/12">Get the data you need to make smarter decisions.</p>
                             </div>
-                            <div class="col-md-5  text-center text-md-end">
-                                <img class="img-fluid mb-4" src="assets/img/illustrations/jobs.png" alt="" />
+                            <div class="w-1/2 mb-4">
+                                <img src="{{asset('assets/img/icons/Rocket.svg')}}" alt="icon1" class="">
+                                <h3 class="font-bold my-2 text-xl">Fast and Easy to use</h3>
+                                <p class="text-base w-11/12">Get the data you need to make smarter decisions.</p>
                             </div>
-
-
-
+                            <div class="w-1/2 mb-4">
+                                <img src="{{asset('assets/img/icons/Security.svg')}}" alt="icon1" class="">
+                                <h3 class="font-bold my-2 text-xl">Safely Security</h3>
+                                <p class="text-base w-11/12">Get the data you need to make smarter decisions.</p>
+                            </div>
+                            <div class="w-1/2 mb-4">
+                                <img src="{{asset('assets/img/icons/Category.svg')}}" alt="icon1" class="">
+                                <h3 class="font-bold my-2 text-xl">Powerfull App</h3>
+                                <p class="text-base w-11/12">Get the data you need to make smarter decisions.</p>
+                            </div>
                         </div>
                     </div>
-                    <!-- end of .container-->
-                </section>
-                <!-- <section> close ============================-->
-                <!-- ============================================-->
-
-
+                </div>
+            </div>
         </section>
-        <!-- <section> close ============================-->
-        <!-- ============================================-->
-
-
-
     </main>
 @endsection

@@ -1,11 +1,9 @@
-<div class="min-h-screen flex flex-col sm:justify-center px-6 items-center pt-8 sm:pt-6 bg-gray-100">
-
-    <div class="text-4xl mx-3 my-6 text-gray-900 font-semibold pt-8 pt-lg-2">
-        سجل الدخول لحسابك
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <div>
+        {{ $logo }}
     </div>
 
-    <div class="w-full sm:max-w-lg mt-6 px-4 py-4 bg-white shadow-md overflow-hidden rounded">
+    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
         {{ $slot }}
     </div>
-
 </div>

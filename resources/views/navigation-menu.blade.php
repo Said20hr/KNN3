@@ -1,47 +1,18 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 pt-3">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+    <div class="border-b border-gray-100">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="flex justify-between h-16">
             <div class="hidden sm:flex">
                 <!-- Logo -->
-                <a class="navbar-brand d-flex align-items-center fw-bolder fs-2 fst-italic" href="#">
-                    <div class="text-info">Ka</div>
-                    <div class="text-warning">nae</div>
-                </a>
-                <!-- Navigation Links -->
-                <x-jet-nav-link href="{{route('dashboard')}}"  :active="request()->routeIs('dashboard')" >
-                    <h2 class="text-xl leading-tight mx-3 {{ (request()->is('dashboard')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
-                        الرئيسية
+                <x-jet-nav-link href="{{route('dashboard')}}"   >
+                    <h2 class="text-xl flex">
+                        <div class="text-blue-500 font-semibold text-3xl">Investment</div>
+                        <div class="text-orange-500 font-semibold text-3xl">Platform</div>
                     </h2>
                 </x-jet-nav-link>
-                <x-jet-nav-link href="{{route('profile.show')}}" :active="request()->routeIs('profile.show')" >
-                    <h2 class="text-xl leading-tight mx-3  {{ (request()->is('user/profile')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
-                        الملف الشخصي
-                    </h2>
-                </x-jet-nav-link>
-                <x-jet-nav-link href="{{route('investment')}}" :active="request()->routeIs('investment')" >
-                    <h2 class="text-xl leading-tight mx-3 {{ (request()->is('user/investissement*')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
-                    الاستثمارات
-                    </h2>
-                </x-jet-nav-link>
-
-                <x-jet-nav-link href="{{route('messages')}}" :active="request()->routeIs('messages')">
-                    <h2 class="font-semibold text-xl mx-3 {{ (request()->is('user/messages*')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
-                        الرسائل و الاستفسارات
-                    </h2>
-                </x-jet-nav-link>
-                <x-jet-nav-link href="{{route('notes')}}" :active="request()->routeIs('notes')">
-                    <h2 class="font-semibold text-xl mx-3 {{ (request()->is('notes*')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
-                       الاخبار
-                    </h2>
-                </x-jet-nav-link>
-
             </div>
-
-
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-
-
                 <!-- Settings Dropdown -->
                 <div class="ml-2 relative">
                     <x-jet-dropdown align="left" width="48">
@@ -106,37 +77,70 @@
                 </button>
             </div>
         </div>
+        </div>
     </div>
+    <!-- Primary Navigation SubMenu -->
+    <div class="max-w-screen-xl mx-auto px-6">
+        <x-jet-nav-link href="{{route('dashboard')}}" class="mr-5"  :active="request()->routeIs('dashboard')" >
+            <h2 class="text-lg py-5 {{ (request()->is('dashboard')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium text-gray-800' }}">
+                Dashboard
+            </h2>
+        </x-jet-nav-link>
+        <x-jet-nav-link href="{{route('profile.show')}}" class="mr-5" :active="request()->routeIs('profile.show')" >
+            <h2 class="text-lg py-5  {{ (request()->is('user/profile')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium text-gray-800' }}">
+                Profile
+            </h2>
+        </x-jet-nav-link>
+        <x-jet-nav-link href="{{route('investment')}}" class="mr-5" :active="request()->routeIs('investment')" >
+            <h2 class="text-lg py-5 {{ (request()->is('user/investissement*')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium text-gray-800' }}">
+                Investments
+            </h2>
+        </x-jet-nav-link>
+        <x-jet-nav-link href="{{route('cashier')}}" class="mr-5" :active="request()->routeIs('cashier')" >
+            <h2 class="text-lg py-5 {{ (request()->is('user/cashier*')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium text-gray-800' }}">
+                Cashier
+            </h2>
+        </x-jet-nav-link>
 
+        <x-jet-nav-link href="{{route('messages')}}" class="mr-5" :active="request()->routeIs('messages')">
+            <h2 class="text-lg py-5 {{ (request()->is('user/messages*')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium text-gray-800' }}">
+                Messages
+            </h2>
+        </x-jet-nav-link>
+        <x-jet-nav-link href="{{route('notes')}}" class="mr-5" :active="request()->routeIs('notes')">
+            <h2 class="text-lg py-5 {{ (request()->is('notes*')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium text-gray-800' }}">
+                News
+            </h2>
+        </x-jet-nav-link>
+    </div>
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-
             <!-- Navigation Links -->
             <x-jet-responsive-nav-link href="{{route('dashboard')}}"  :active="request()->routeIs('dashboard')" >
                 <h2 class="text-xl leading-tight mx-3 py-2 {{ (request()->is('dashboard')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
-                    الرئيسية
+                    Home
                 </h2>
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{route('profile.show')}}" :active="request()->routeIs('profile.show')" >
                 <h2 class="text-xl leading-tight mx-3 py-2  {{ (request()->is('user/profile')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
-                    الملف الشخصي
+                   Profile
                 </h2>
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{route('investment')}}" :active="request()->routeIs('investment')" >
                 <h2 class="text-xl leading-tight mx-3 py-2 {{ (request()->is('investissement')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
-                    الاستثمارات
+                    Investment
                 </h2>
             </x-jet-responsive-nav-link>
 
             <x-jet-responsive-nav-link href="{{route('messages')}}" :active="request()->routeIs('messages')">
                 <h2 class="font-semibold text-xl mx-3  py-2{{ (request()->is('user/messages')) ? 'text-indigo-600 font-weight-bolder' : 'fw-medium' }}">
-                    الرسائل و الاستفسارات
+                    Messages
                 </h2>
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{route('notes')}}">
                 <h2 class="font-semibold text-xl mx-3 py-2">
-                    الاخبار
+                    News
                 </h2>
             </x-jet-responsive-nav-link>
         </div>
@@ -149,34 +153,28 @@
                         <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                     </div>
                 @endif
-
                 <div>
                     <div class="font-medium text-base text-gray-800 mx-3">{{ Auth::user()->name }}</div>
-
                 </div>
             </div>
 
             <div class="mt-3 space-y-2 text-xl leading-tight mx-3">
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('الملف الشخصي') }}
+                    {{ __('Profile') }}
                 </x-jet-responsive-nav-link>
-
-
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                        {{ __('تسجيل خروج') }}
+                        {{ __('Log out') }}
                     </x-jet-responsive-nav-link>
                 </form>
-
-
-
             </div>
         </div>
     </div>
 </nav>
+<!-- Navigation Links -->
+

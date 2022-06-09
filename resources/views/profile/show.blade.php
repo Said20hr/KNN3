@@ -1,16 +1,6 @@
 <x-app-layout>
-    <x-slot name="header">
-        <div class="d-flex flex">
-            <a href="{{route('dashboard')}}" class="font-semibold text-lg text-gray-400 leading-tight mx-3">
-                {{ __(' الرئيسية') }}
-            </a> ·
-            <h2 class="font-semibold text-lg text-gray-800 leading-tight mx-3">
-                {{ __('الملف الشخصي') }}
-            </h2>
-        </div>
-    </x-slot>
-    <div class="container mx-auto p-tb-56">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="py-10">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-12">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
                 @livewire('profile.update-profile-information-form')
                 <x-jet-section-border />

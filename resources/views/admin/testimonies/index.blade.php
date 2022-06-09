@@ -8,29 +8,29 @@
         <!-- Header -->
         <div class="header bg-primary ">
             <div class="container-fluid">
-                <div class="header-body py-6" dir="rtl">
+                <div class="header-body py-6">
                     <div class="d-flex justify-content-between align-items-center py-8">
                         <div class="">
 
-                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
 
-                                    <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"> آراء المستثمرين   </li>
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"> Reviews   </li>
                                 </ol>
                             </nav>
                         </div>
                         <div class="">
-                            <a href="{{route('testimony.create')}}" class="btn btn-lg btn-neutral">أضف رأي</a>
+                            <a href="{{route('testimony.create')}}" class="btn btn-lg btn-neutral">Add new review</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--8" dir="rtl">
+        <div class="container-fluid mt--8">
 
-            <div class="card text-right">
+            <div class="card">
                 <div class="p-t-28 p-lr-20">
                     @if(session()->has('success_message'))
                         <div class="alert alert-success fs-20">{{session()->get('success_message')}}</div>
@@ -41,7 +41,7 @@
                 </div>
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">جدول الأراء </h3>
+                    <h3 class="mb-0">Table </h3>
                 </div>
 
                 <!-- Light table -->
@@ -49,9 +49,9 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                         <tr>
-                            <th scope="col" class="sort" data-sort="name"> اسم المستثمر</th>
-                            <th scope="col" class="sort" data-sort="name"> الرأي</th>
-                            <th scope="col" class="sort" data-sort="status">الامتياز</th>
+                            <th scope="col" class="sort" data-sort="name">  Name</th>
+                            <th scope="col" class="sort" data-sort="name"> Review</th>
+                            <th scope="col" class="sort" data-sort="status">Feature</th>
                             <th scope="col"></th>
                         </tr>
                         </thead>
@@ -80,23 +80,23 @@
                                     @if($testi->status)
                                         <span class="badge badge-dot ml-4">
                                             <i class="bg-success"></i>
-                                            <span class="status">متميز</span>
+                                            <span class="status">Featured</span>
                                         </span>
                                     @else
                                         <span class="badge badge-dot ml-4">
                                             <i class="bg-danger"></i>
-                                            <span class="status">غير متميز</span>
+                                            <span class="status">Not featured</span>
                                         </span>
                                     @endif
                                 </td>
                                 <td class="text-right">
                                     <div class="d-flex ">
-                                        <a href="{{route('testimony.show',$testi->id)}}" class="btn btn-sm btn-primary mx-2" >شاهد</a>
-                                        <a href="{{route('testimony.edit',$testi->id)}}"class="btn btn-sm btn-success mx-2" >عدل</a>
+                                        <a href="{{route('testimony.show',$testi->id)}}" class="btn btn-sm btn-primary mx-2" >View</a>
+                                        <a href="{{route('testimony.edit',$testi->id)}}"class="btn btn-sm btn-success mx-2" >Edit</a>
                                         <form action="{{ route('testimony.destroy',$testi->id)}}"  method="POST" class="">
                                             @method('DELETE')
                                             @csrf
-                                            <button class="btn btn-sm btn-danger mx-2" type="submit">حذف</button>
+                                            <button class="btn btn-sm btn-danger mx-2" type="submit">Delete</button>
                                         </form>
                                     </div>
                                 </td>

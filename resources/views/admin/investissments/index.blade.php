@@ -8,29 +8,29 @@
         <!-- Header -->
         <div class="header bg-primary ">
             <div class="container-fluid">
-                <div class="header-body py-6" dir="rtl">
+                <div class="header-body py-6">
                     <div class="d-flex justify-content-between align-items-center py-8">
                         <div class="">
 
-                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
 
-                                    <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"> الاستثمارات   </li>
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"> Investments   </li>
                                 </ol>
                             </nav>
                         </div>
                         <div class="">
-                            <a href="{{route('investissements.create')}}" class="btn btn-lg btn-neutral">أضف استثمار</a>
+                            <a href="{{route('investissements.create')}}" class="btn btn-lg btn-neutral"> Add new Investments</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--8" dir="rtl">
+        <div class="container-fluid mt--8">
 
-            <div class="card text-right">
+            <div class="card">
                 <div class="p-t-28 p-lr-20">
                     @if(session()->has('success_message'))
                         <div class="alert alert-success fs-20">{{session()->get('success_message')}}</div>
@@ -41,7 +41,7 @@
                 </div>
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">جدول  </h3>
+                    <h3 class="mb-0">Table  </h3>
                 </div>
 
                 <!-- Light table -->
@@ -49,13 +49,13 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                         <tr>
-                            <th scope="col" class="sort" data-sort="name"> اسم المستثمر</th>
-                            <th scope="col" class="sort" data-sort="budget"> المبلغ المستثمر</th>
-                            <th scope="col" class="sort" data-sort="budget"> الباقة</th>
-                            <th scope="col" class="sort" data-sort="status">نسبة الربح</th>
-                            <th scope="col" class="sort" data-sort="status">المدة</th>
-                            <th scope="col" class="sort" data-sort="status">الحالة</th>
-                            <th scope="col"></th>
+                            <th scope="col" class="sort" data-sort="name"> investor</th>
+                            <th scope="col" class="sort" data-sort="budget"> Amount</th>
+                            <th scope="col" class="sort" data-sort="budget"> Pack</th>
+                            <th scope="col" class="sort" data-sort="status">Profit percent</th>
+                            <th scope="col" class="sort" data-sort="status">Duration</th>
+                            <th scope="col" class="sort" data-sort="status">Status</th>
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody class="list">
@@ -63,7 +63,7 @@
                             <tr>
                             <td scope="row">
                                 <div class="media align-items-center">
-                                    <a href="#" class="avatar rounded-circle ml-3">
+                                    <a href="#" class="avatar rounded-circle mr-3">
 
                                         <img  src="{{ $invest->user->profile_photo_url }}" alt="{{ $invest->user->name }}">
 
@@ -74,38 +74,38 @@
                                 </div>
                             </td>
                             <td class="budget">
-                                 {{$invest->price}}   دوﻻر
+                                 {{$invest->price}}   USD
                             </td>
                             <td>
                                 <div>{{$invest->pack->name}}</div>
                             </td>
                             <td>
-                                <span class="completion ml-2"> {{$invest->profit}} دوﻻر </span>
+                                <span class="completion ml-2"> {{$invest->profit}} USD </span>
                             </td>
                                 <td>
-                                    <span class="completion ml-2"> {{$invest->created_at->diffInDays(Carbon\Carbon::now())}} يوم</span>
+                                    <span class="completion ml-2"> {{$invest->created_at->diffInDays(Carbon\Carbon::now())}} Day</span>
                                 </td>
                                 <td>
                                 @if($invest->status)
                                     <span class="badge badge-dot ml-4">
                                         <i class="bg-success"></i>
-                                        <span class="status">مغعل</span>
+                                        <span class="status">Active</span>
                                     </span>
                                     @else
                                     <span class="badge badge-dot ml-4">
                                         <i class="bg-danger"></i>
-                                        <span class="status">معطل</span>
+                                        <span class="status">InActive</span>
                                     </span>
                                     @endif
                                 </td>
                             <td class="text-right">
                                 <div class="d-flex ">
-                                        <a href="{{route('investissements.show',$invest->id)}}" class="btn btn-sm btn-primary mx-2" >شاهد</a>
-                                        <a href="{{route('investissements.edit',$invest->id)}}"class="btn btn-sm btn-success mx-2" >عدل</a>
+                                        <a href="{{route('investissements.show',$invest->id)}}" class="btn btn-sm btn-primary mx-2" >View</a>
+                                        <a href="{{route('investissements.edit',$invest->id)}}"class="btn btn-sm btn-success mx-2" >Edit</a>
                                         <form action="{{ route('investissements.destroy',$invest->id)}}"  method="POST" class="">
                                             @method('DELETE')
                                             @csrf
-                                            <button class="btn btn-sm btn-danger mx-2" type="submit">حذف</button>
+                                            <button class="btn btn-sm btn-danger mx-2" type="submit">Delete</button>
                                         </form>
                                     </div>
                             </td>

@@ -1,17 +1,4 @@
-
-    <x-slot name="header">
-        <div class="d-flex flex">
-            <a href="{{route('dashboard')}}" class="font-semibold text-lg text-gray-400 leading-tight mx-3">
-                {{ __(' الرئيسية') }}
-            </a> ·
-            <h2 class="font-semibold text-lg text-gray-800 leading-tight mx-3">
-                {{ __('الرسائل و الاستفسارات') }}
-            </h2>
-        </div>
-
-    </x-slot>
-
-    <div class="py-10 px-3">
+<div class="py-2">
         <div class="max-w-7xl mx-auto sm:px-8 lg:px-8">
             <div class="py-4">
                 @if(session()->has('success_message'))
@@ -25,22 +12,17 @@
                 <div class="">
                     <div class="sm:flex justify-between mb-5">
                         <div class="mb-5">
-                            <h3 class="text-xl font-weight-bolder text-black"> قائمة الرسائل </h3>
+                            <h3 class="text-xl font-weight-bolder text-black"> Messages </h3>
                             <p class="mt-1 text-md text-gray-500">
-                                تصفح قائمة الرسائل الخاصة بك .
+                                Browse your messages
                             </p>
                         </div>
                         <div>
                             <a href="{{route('message.send')}}"
-                               class="text-center inline-flex items-center
-                            px-6 py-2 bg-green-500 border border-transparent rounded-md font-semibold
-                             text-white uppercase  hover:bg-green-600 active:bg-gray-900 focus:outline-none
-                             focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-text-center
-                              inline-flex items-center px-6 py-2 bg-green-500 border border-transparent rounded-md
-                               font-semibold  text-white uppercase  hover:bg-green-600 active:bg-gray-900 focus:outline-none
-                               focus:border-gray-900
-                            focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
-                                ارسل طلبك
+                               class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent
+                               rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none
+                                focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+                                Send request
                             </a>
                         </div>
                     </div>
@@ -53,13 +35,13 @@
                                     <th class="text-right px-5 py-3 border-b-2 border-gray-200 bg-indigo-500 text-left text-lg font-mono text-white uppercase">
                                     </th>
                                     <th class="text-right px-5 py-3 border-b-2 border-gray-200 bg-indigo-500 text-left text-lg font-mono text-white uppercase">
-                                        عنوان الرسالة
+                                        Subject
                                     </th>
                                     <th class="text-right px-5 py-3 border-b-2 border-gray-200 bg-indigo-500 text-left text-lg font-mono text-white uppercase">
-                                        تاريخ الارسال
+                                       Send date
                                     </th>
                                     <th class="text-right px-5 py-3 border-b-2 border-gray-200 bg-indigo-500 text-left text-lg font-mono text-white uppercase">
-                                        الرد
+                                        Reply
                                     </th>
                                     <th class="text-right px-5 py-3 border-b-2 border-gray-200 bg-indigo-500 text-left text-lg font-mono text-white uppercase">
                                     </th>
@@ -85,14 +67,14 @@
                                             <span
                                                 aria-hidden
                                                 class="absolute inset-0 bg-green-500 opacity-50 rounded-full"></span>
-                                            <span class="relative">تم الرد</span>
+                                            <span class="relative">Answered</span>
                                         </span>
                                         @else
                                             <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                             <span
                                                 aria-hidden
                                                 class="absolute inset-0 bg-yellow-400 opacity-50 rounded-full"></span>
-                                            <span class="relative">في الانتظار</span>
+                                            <span class="relative">Pending</span>
                                         </span>
                                         @endif
                                     </td>
@@ -105,11 +87,11 @@
                                                 <button wire:click="destroy({{$message->id}})"
                                                         class="mx-2 text-center text-sm inline-flex items-center px-2 py-2 bg-red-600 rounded-md font-semibold
                                                          text-white hover:bg-red-700 active:bg-gray-900 focus:outline-none focus:border-gray-900
-                                                         disabled:opacity-25 transitio">حذف
+                                                         disabled:opacity-25 transitio">Delete
                                                 </button>
 
                                             @endif
-                                            
+
 
                                         </div>
                                     </td>
@@ -122,13 +104,15 @@
                         </div>
                     </div>
                     @else
-                        <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                        <div class="text-gray-900 py-2 px-3 rounded fs-20">ﻻ توجد اي رسالة لك.</div>
+                        <div class="text-center justify-center items-center mx-auto py-6">
+                            <img src="{{asset('assets/img/icons/messages.png')}}" alt="Investment-plan" class="w-40 mx-auto">
+                            <div class="font-bold text-2xl my-3">No Messages found</div>
                         </div>
+
                     @endif
                 </div>
             </div></div>
     </div>
-    </div>
+
 
 
